@@ -12,6 +12,7 @@ namespace Helicopter_Game.Scripts.Old_Input
         public void Update()
         {
             HandleInput();
+            
         }
 
         protected virtual void HandleInput()
@@ -19,5 +20,7 @@ namespace Helicopter_Game.Scripts.Old_Input
             verticalInput = Input.GetAxis("Vertical");
             horizontalInput = Input.GetAxis("Horizontal");
         }
+        
+        
     }
 }

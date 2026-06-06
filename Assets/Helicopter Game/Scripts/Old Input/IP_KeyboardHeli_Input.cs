@@ -10,10 +10,10 @@ public class IP_KeyboardHeli_Input : IP_BaseHeli_Input
     
     
     [Header("Heli KeyBoard Inputs")]
-    public float ThrottleInput { get; private set; } = 0f;
-    public float CollectiveInput { get; private set; } = 0f;
-    public Vector2 CyclicInput { get; private set; } = Vector2.zero;
-    public float PedalInput { get; private set; } = 0f;
+    public float ThrottleInput { get; protected set; } = 0f;
+    public float CollectiveInput { get; protected set; } = 0f;
+    public Vector2 CyclicInput { get; protected set; } = Vector2.zero;
+    public float PedalInput { get; protected set; } = 0f;
 
     protected override void HandleInput()
     {
@@ -23,27 +23,38 @@ public class IP_KeyboardHeli_Input : IP_BaseHeli_Input
         HandlePedal();
         HandleCollective();
         HandleCyclic();
+
+        ClampInputs();
     }
 
-    private void HandleThrottle()
+    protected virtual void HandleThrottle()
     {
         ThrottleInput = Input.GetAxis(THROTTLE_INPUT);
     }
     
-    private void HandlePedal()
+    protected virtual void HandlePedal()
     {
         PedalInput = Input.GetAxis(PEDAL_INPUT);
     }
     
-    private void HandleCollective()
+    protected virtual void HandleCollective()
     {
         CollectiveInput = Input.GetAxis(COLLECTIVE_INPUT);
     }
 
-    private void HandleCyclic()
+    protected virtual void HandleCyclic()
     {
         float x = horizontalInput;
         float y = verticalInput;
         CyclicInput = new Vector2(x, y);
+    }
+    
+    protected void ClampInputs()
+    {
+        ThrottleInput = Mathf.Clamp(ThrottleInput, -1f, 1f);
+        CollectiveInput = Mathf.Clamp(CollectiveInput, -1f, 1f);
+        CyclicInput = new Vector2(Mathf.Clamp(CyclicInput.x, -1f, 1f), 
+            Mathf.Clamp(CyclicInput.y, -1f, 1f));
+        PedalInput = Mathf.Clamp(PedalInput, -1f, 1f);
     }
 } 
