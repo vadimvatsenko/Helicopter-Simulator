@@ -13,7 +13,7 @@ namespace Helicopter_Game.Scripts.Old_Input
         
         protected override void HandleThrottle()
         {
-            ThrottleInput = Input.GetAxis(XBOX_THROTTLE_UP) + -Input.GetAxis(XBOX_THROTTLE_DOWN);
+            RawThrottleInput = Input.GetAxis(XBOX_THROTTLE_UP) + -Input.GetAxis(XBOX_THROTTLE_DOWN);
         }
 
         protected override void HandleCollective()

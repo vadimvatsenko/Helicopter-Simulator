@@ -27,7 +27,7 @@ namespace Helicopter_Game.Scripts.Old_Input.Editor
             EditorGUILayout.Space();
             EditorGUI.indentLevel++;
             
-            EditorGUILayout.LabelField("Throttle: " + targetInput.ThrottleInput.ToString("0.00"), EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Throttle: " + targetInput.RawThrottleInput.ToString("0.00"), EditorStyles.boldLabel);
             EditorGUILayout.LabelField("CollectiveInput: " + targetInput.CollectiveInput.ToString("0.00"), EditorStyles.boldLabel);
             EditorGUILayout.LabelField("CyclicInput: " + targetInput.CyclicInput.ToString("0.00"), EditorStyles.boldLabel);
             EditorGUILayout.LabelField("Pedal: " + targetInput.PedalInput.ToString("0.00"), EditorStyles.boldLabel);

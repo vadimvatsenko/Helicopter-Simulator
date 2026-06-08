@@ -8,28 +8,32 @@ public class IP_KeyboardHeli_Input : IP_BaseHeli_Input
     private const string CYCLE_INPUT = "Cyclic";
     private const string THROTTLE_INPUT = "Throttle";
     
-    
     [Header("Heli KeyBoard Inputs")]
-    public float ThrottleInput { get; protected set; } = 0f;
+    public float RawThrottleInput { get; protected set; } = 0f;
     public float CollectiveInput { get; protected set; } = 0f;
     public Vector2 CyclicInput { get; protected set; } = Vector2.zero;
     public float PedalInput { get; protected set; } = 0f;
+    
+    public float StickyThrottle { get; protected set; } = 0f;
 
     protected override void HandleInput()
     {
         base.HandleInput();
         
+        // Input Methods
         HandleThrottle();
         HandlePedal();
         HandleCollective();
         HandleCyclic();
 
+        // Utils Methods
         ClampInputs();
+        HandleStickyThrottle();
     }
 
     protected virtual void HandleThrottle()
     {
-        ThrottleInput = Input.GetAxis(THROTTLE_INPUT);
+        RawThrottleInput = Input.GetAxis(THROTTLE_INPUT);
     }
     
     protected virtual void HandlePedal()
@@ -51,10 +55,17 @@ public class IP_KeyboardHeli_Input : IP_BaseHeli_Input
     
     protected void ClampInputs()
     {
-        ThrottleInput = Mathf.Clamp(ThrottleInput, -1f, 1f);
+        RawThrottleInput = Mathf.Clamp(RawThrottleInput, -1f, 1f);
         CollectiveInput = Mathf.Clamp(CollectiveInput, -1f, 1f);
         CyclicInput = new Vector2(Mathf.Clamp(CyclicInput.x, -1f, 1f), 
             Mathf.Clamp(CyclicInput.y, -1f, 1f));
         PedalInput = Mathf.Clamp(PedalInput, -1f, 1f);
+    }
+
+    protected void HandleStickyThrottle()
+    {
+        StickyThrottle += RawThrottleInput * Time.deltaTime;
+        StickyThrottle = Mathf.Clamp01(StickyThrottle);
+        //Debug.Log("Sticky throttle: " + StickyThrottle);
     }
 } 
