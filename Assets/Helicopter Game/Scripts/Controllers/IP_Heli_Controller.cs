@@ -15,6 +15,8 @@ namespace Helicopter_Game.Scripts.Controllers
         [SerializeField] private List<IP_Heli_Engine> engines = new List<IP_Heli_Engine>();
         private IP_Input_Controller input;
 
+        [Header("Helicopter Rotors")]
+        [SerializeField] private IP_HeliRotor_Controller rotorController;
         
 
         protected override void Start()
@@ -26,7 +28,16 @@ namespace Helicopter_Game.Scripts.Controllers
         protected override void HandlePhysics()
         { 
             HandleEngines();
+            HandleRotors();
             HandleCharacteristics();
+        }
+
+        protected virtual void HandleRotors()
+        {
+            if (engines.Count > 0)
+            {
+                rotorController.UpdateRotors(input, engines[0].CurrentRPM);
+            }
         }
 
         protected virtual void HandleCharacteristics()

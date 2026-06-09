@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Helicopter_Game.Scripts.Engines
 {
-    
     public class IP_Heli_Engine : MonoBehaviour
     {
         /// <summary>

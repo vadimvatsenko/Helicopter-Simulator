@@ -5,7 +5,7 @@ namespace Helicopter_Game.Scripts.Old_Input
 {
     
     [RequireComponent(typeof(IP_KeyboardHeli_Input), typeof(IP_XboxHeli_Input), typeof(IP_MobileHeli_Input))]
-public class IP_Input_Controller : MonoBehaviour
+    public class IP_Input_Controller : MonoBehaviour
     {
         [Header("Input Components")]
         [SerializeField] private InputType inputType = InputType.KeyBoard;
