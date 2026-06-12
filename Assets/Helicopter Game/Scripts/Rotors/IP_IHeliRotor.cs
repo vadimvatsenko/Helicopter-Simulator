@@ -5,6 +5,6 @@ namespace Helicopter_Game.Scripts.Rotors
 {
     public interface IP_IHeliRotor 
     {
-        void UpdateRotors(float currentDps, IP_Input_Controller input);
+        void UpdateRotors(float dps, IP_Input_Controller input);
     }
 }

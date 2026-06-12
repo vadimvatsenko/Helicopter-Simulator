@@ -1,71 +1,80 @@
-using Helicopter_Game.Scripts.Old_Input;
 using UnityEngine;
 
-public class IP_KeyboardHeli_Input : IP_BaseHeli_Input
+namespace Helicopter_Game.Scripts.Old_Input
 {
-    private const string PEDAL_INPUT = "Pedal";
-    private const string COLLECTIVE_INPUT = "Collective";
-    private const string CYCLE_INPUT = "Cyclic";
-    private const string THROTTLE_INPUT = "Throttle";
-    
-    [Header("Heli KeyBoard Inputs")]
-    public float RawThrottleInput { get; protected set; } = 0f;
-    public float CollectiveInput { get; protected set; } = 0f;
-    public Vector2 CyclicInput { get; protected set; } = Vector2.zero;
-    public float PedalInput { get; protected set; } = 0f;
-    
-    public float StickyThrottle { get; protected set; } = 0f;
-
-    protected override void HandleInput()
+    public class IP_KeyboardHeli_Input : IP_BaseHeli_Input
     {
-        base.HandleInput();
+        private const string PEDAL_INPUT = "Pedal";
+        private const string COLLECTIVE_INPUT = "Collective";
+        private const string CYCLE_INPUT = "Cyclic";
+        private const string THROTTLE_INPUT = "Throttle";
+    
+        [Header("Heli KeyBoard Inputs")]
         
-        // Input Methods
-        HandleThrottle();
-        HandlePedal();
-        HandleCollective();
-        HandleCyclic();
+        public float RawThrottleInput { get; protected set; } = 0f;
+        public float CollectiveInput { get; protected set; } = 0f;
+        public Vector2 CyclicInput { get; protected set; } = Vector2.zero;
+        public float PedalInput { get; protected set; } = 0f;
+        public float StickyThrottle { get; protected set; } = 0f;
+        public float StickyCollectiveInput { get; protected set; } = 0f;
 
-        // Utils Methods
-        ClampInputs();
-        HandleStickyThrottle();
-    }
+        protected override void HandleInput()
+        {
+            base.HandleInput();
+        
+            // Input Methods
+            HandleThrottle();
+            HandlePedal();
+            HandleCollective();
+            HandleCyclic();
 
-    protected virtual void HandleThrottle()
-    {
-        RawThrottleInput = Input.GetAxis(THROTTLE_INPUT);
-    }
+            // Utils Methods
+            ClampInputs();
+            HandleStickyThrottle();
+            HandleStickyCollective();
+        }
+
+        protected virtual void HandleThrottle()
+        {
+            RawThrottleInput = Input.GetAxis(THROTTLE_INPUT);
+        }
     
-    protected virtual void HandlePedal()
-    {
-        PedalInput = Input.GetAxis(PEDAL_INPUT);
-    }
+        protected virtual void HandlePedal()
+        {
+            PedalInput = Input.GetAxis(PEDAL_INPUT);
+        }
     
-    protected virtual void HandleCollective()
-    {
-        CollectiveInput = Input.GetAxis(COLLECTIVE_INPUT);
-    }
+        protected virtual void HandleCollective()
+        {
+            CollectiveInput = Input.GetAxis(COLLECTIVE_INPUT);
+        }
 
-    protected virtual void HandleCyclic()
-    {
-        float x = horizontalInput;
-        float y = verticalInput;
-        CyclicInput = new Vector2(x, y);
-    }
+        protected virtual void HandleCyclic()
+        {
+            float x = horizontalInput;
+            float y = verticalInput;
+            CyclicInput = new Vector2(x, y);
+        }
     
-    protected void ClampInputs()
-    {
-        RawThrottleInput = Mathf.Clamp(RawThrottleInput, -1f, 1f);
-        CollectiveInput = Mathf.Clamp(CollectiveInput, -1f, 1f);
-        CyclicInput = new Vector2(Mathf.Clamp(CyclicInput.x, -1f, 1f), 
-            Mathf.Clamp(CyclicInput.y, -1f, 1f));
-        PedalInput = Mathf.Clamp(PedalInput, -1f, 1f);
-    }
+        protected void ClampInputs()
+        {
+            RawThrottleInput = Mathf.Clamp(RawThrottleInput, -1f, 1f);
+            CollectiveInput = Mathf.Clamp(CollectiveInput, -1f, 1f);
+            CyclicInput = new Vector2(Mathf.Clamp(CyclicInput.x, -1f, 1f), 
+                Mathf.Clamp(CyclicInput.y, -1f, 1f));
+            PedalInput = Mathf.Clamp(PedalInput, -1f, 1f);
+        }
 
-    protected void HandleStickyThrottle()
-    {
-        StickyThrottle += RawThrottleInput * Time.deltaTime;
-        StickyThrottle = Mathf.Clamp01(StickyThrottle);
-        //Debug.Log("Sticky throttle: " + StickyThrottle);
+        protected void HandleStickyThrottle()
+        {
+            StickyThrottle += RawThrottleInput * Time.deltaTime;
+            StickyThrottle = Mathf.Clamp01(StickyThrottle);
+        }
+
+        protected void HandleStickyCollective()
+        {
+            StickyCollectiveInput += -CollectiveInput * Time.fixedDeltaTime;
+            StickyCollectiveInput = Mathf.Clamp01(StickyCollectiveInput);
+        }
     }
 } 

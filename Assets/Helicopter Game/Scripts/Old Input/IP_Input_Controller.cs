@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace Helicopter_Game.Scripts.Old_Input
 {
-    
     [RequireComponent(typeof(IP_KeyboardHeli_Input), typeof(IP_XboxHeli_Input), typeof(IP_MobileHeli_Input))]
     public class IP_Input_Controller : MonoBehaviour
     {
@@ -17,8 +16,8 @@ namespace Helicopter_Game.Scripts.Old_Input
         public float CollectiveInput { get; private set; }
         public Vector2 CyclicInput  { get; private set; }
         public float PedalInput { get; private set; }
-        
         public float StickyThrottle { get; private set; }
+        public float StickyCollectiveInput { get; private set; }
 
         private void Start()
         {
@@ -38,6 +37,7 @@ namespace Helicopter_Game.Scripts.Old_Input
                     PedalInput = keyboardInput.PedalInput;
                     CyclicInput = keyboardInput.CyclicInput;
                     StickyThrottle = keyboardInput.StickyThrottle;
+                    StickyCollectiveInput = keyboardInput.StickyCollectiveInput;
                     break;
                 case InputType.XBox:
                     ThrottleInput = xboxInput.RawThrottleInput;
@@ -45,6 +45,7 @@ namespace Helicopter_Game.Scripts.Old_Input
                     PedalInput = xboxInput.PedalInput;
                     CyclicInput = xboxInput.CyclicInput;
                     StickyThrottle = xboxInput.StickyThrottle;  
+                    StickyCollectiveInput = xboxInput.StickyCollectiveInput;
                     break;
                 case InputType.Mobile:
                     //

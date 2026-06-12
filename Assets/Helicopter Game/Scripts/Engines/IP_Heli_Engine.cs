@@ -1,4 +1,3 @@
-using OpenCover.Framework.Model;
 using UnityEngine;
 
 namespace Helicopter_Game.Scripts.Engines
@@ -19,19 +18,25 @@ namespace Helicopter_Game.Scripts.Engines
         /// </summary>
         [SerializeField] private AnimationCurve powerCurve = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
 
+        /// <summary>
+        /// текущая лошадиная сила
+        /// </summary>
         public float CurrentHP { get; private set; }
+        /// <summary>
+        /// текущий крутящий момент
+        /// </summary>
         public float CurrentRPM { get; private set; }
         
         
         public void UpdateEngine(float throttleInput)
         {
-            // Calculate HorsePower
-            float wantedHP = powerCurve.Evaluate(throttleInput)  * maxHP;
-            CurrentHP = Mathf.Lerp(CurrentHP, wantedHP, Time.deltaTime * powerDelay);
+            // Расчёт Лошадиных сыл
+            float wantedHP = powerCurve.Evaluate(throttleInput) * maxHP;
+            CurrentHP = Mathf.Lerp(CurrentHP, wantedHP, Time.fixedDeltaTime * powerDelay);
             
-            // Calculate RPM
+            // Расчет Оборотов в минуту
             float wantedRPM = powerCurve.Evaluate(throttleInput)  * maxRPM;
-            CurrentRPM = Mathf.Lerp(CurrentRPM, wantedRPM, Time.deltaTime * powerDelay);
+            CurrentRPM = Mathf.Lerp(CurrentRPM, wantedRPM, Time.fixedDeltaTime * powerDelay);
         }
     }
 }

@@ -13,18 +13,17 @@ namespace Helicopter_Game.Scripts.Controllers
         private void Start()
         {
             heliRotors = GetComponentsInChildren<IP_IHeliRotor>().ToList();
-            Debug.Log(heliRotors.Count);
         }
         
         public void UpdateRotors(IP_Input_Controller input, float currentRPM)
         {
-            Debug.Log(currentRPM);
             // Degrees per second calculation
-            float dps = ((currentRPM * 360f) / 60f) * Time.deltaTime;
+            //float dps = ((currentRPM * 360f) / 60f) * Time.fixedDeltaTime;
             
             foreach (var heliRotor in heliRotors)
             {
-                heliRotor.UpdateRotors(dps, input);
+                //heliRotor.UpdateRotors(dps, input);
+                heliRotor.UpdateRotors(currentRPM, input);
             }
         }
     }
