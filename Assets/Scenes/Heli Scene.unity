@@ -728,21 +728,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 528684535247044261, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
-      propertyPath: maxDps
-      value: 3000
+    - target: {fileID: 715631141823228040, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
+      propertyPath: tailForce
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 715631141823228040, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: maxLiftForce
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2249961689998042872, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
-      propertyPath: powerDelay
-      value: 0.09
+      propertyPath: maxRPM
+      value: 2700
       objectReference: {fileID: 0}
     - target: {fileID: 5267021755995329327, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: maxDps
-      value: 3000
+      value: 2700
       objectReference: {fileID: 0}
     - target: {fileID: 7540817451839241093, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: m_Name
@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.78993845
+      value: 2.7899384
       objectReference: {fileID: 0}
     - target: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: m_LocalPosition.z

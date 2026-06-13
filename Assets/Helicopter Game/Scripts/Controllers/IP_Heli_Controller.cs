@@ -26,7 +26,6 @@ namespace Helicopter_Game.Scripts.Controllers
             base.Start();
             input = GetComponent<IP_Input_Controller>();
             characteristics = GetComponent<IP_Heli_Characteristics>();
-            Debug.Log(characteristics.name);
         }
 
         protected override void HandlePhysics()
@@ -55,6 +54,7 @@ namespace Helicopter_Game.Scripts.Controllers
             {
                 engines[i].UpdateEngine(input.StickyThrottle);
                 float finalPower = engines[i].CurrentHP;
+                //Debug.Log(finalPower);
             }
         }
     }

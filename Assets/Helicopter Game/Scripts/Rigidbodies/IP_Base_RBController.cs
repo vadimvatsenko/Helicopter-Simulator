@@ -9,7 +9,7 @@ namespace Helicopter_Game.Scripts.Rigidbodies
         private const float KgToPnd = 2.20462f;
         
         [Header("Weight Properties In Pounds")] 
-        [SerializeField] private float weightInPnd = 10f;
+        [SerializeField] private float weightInPnd = 100f;
         // объект центра тяжести
         protected Transform cog;
         

@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 140
   maxRPM: 2700
-  powerDelay: 0.02
+  powerDelay: 2
   powerCurve:
     serializedVersion: 2
     m_Curve:
@@ -1078,7 +1078,6 @@ GameObject:
   - component: {fileID: 667910620955827527}
   - component: {fileID: 933592104966874010}
   - component: {fileID: 1975714340695466486}
-  - component: {fileID: 3772494094804977222}
   m_Layer: 0
   m_Name: Blur_Quad
   m_TagString: Untagged
@@ -1154,28 +1153,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3772494094804977222
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408655418828463688}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2438218090160615901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2335,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6814809893405465948}
   - component: {fileID: 4118061547139302344}
-  - component: {fileID: 7399966424913390902}
   - component: {fileID: 3545404165697764064}
   m_Layer: 0
   m_Name: Blur_Quad
@@ -2389,28 +2365,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6050268007315167179}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &7399966424913390902
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6050268007315167179}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &3545404165697764064
 MeshRenderer:
@@ -2564,6 +2518,7 @@ MonoBehaviour:
   lRotor: {fileID: 7164221473252384976}
   rRotor: {fileID: 4993842120581327928}
   maxPitch: 35
+  radius: 2
 --- !u!114 &528684535247044261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2592,7 +2547,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ed3134fc98a404a41aed092e53506785, type: 3}
   - {fileID: 2800000, guid: 7068257164979f64fa4e07d401476b4f, type: 3}
   - {fileID: 2800000, guid: 52c95cced04f28141b39f5ea47ad81dc, type: 3}
-  maxDps: 100
+  maxDps: 3000
 --- !u!1 &6501417057240014473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,7 +3021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc6990fb7682c643b683e474c3b793d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputType: 0
+  inputType: 1
 --- !u!114 &5671510951964065788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3131,6 +3086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b0abddcc793fe449d6370e50bfb1a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLiftForce: 3
 --- !u!1 &7767769055739475271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3267,7 +3223,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e7c3198a01922d240b128a02f16b0f73, type: 3}
   - {fileID: 2800000, guid: fd5bdfd071ee2674399772bd38828c4d, type: 3}
   - {fileID: 2800000, guid: 1c739f0df37149547b83ee86f1b71ab5, type: 3}
-  maxDps: 100
+  maxDps: 3000
 --- !u!1 &8376490145435491142
 GameObject:
   m_ObjectHideFlags: 0

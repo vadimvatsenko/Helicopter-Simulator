@@ -15,6 +15,12 @@ namespace Helicopter_Game.Scripts.Old_Input
         public float CollectiveInput { get; protected set; } = 0f;
         public Vector2 CyclicInput { get; protected set; } = Vector2.zero;
         public float PedalInput { get; protected set; } = 0f;
+        /// <summary>
+        /// 5. public float StickyThrottle { get; private set; }
+        /// Что делает: Сохраняет текущий уровень газа.
+        /// Игрок нажал кнопку увеличения газа до 80%, отпустил кнопку — значение так и осталось 80% (оно "прилипло"),
+        /// пока игрок намеренно не нажмет кнопку уменьшения газа.
+        /// </summary>
         public float StickyThrottle { get; protected set; } = 0f;
         public float StickyCollectiveInput { get; protected set; } = 0f;
 
@@ -34,21 +40,12 @@ namespace Helicopter_Game.Scripts.Old_Input
             HandleStickyCollective();
         }
 
-        protected virtual void HandleThrottle()
-        {
-            RawThrottleInput = Input.GetAxis(THROTTLE_INPUT);
-        }
-    
-        protected virtual void HandlePedal()
-        {
-            PedalInput = Input.GetAxis(PEDAL_INPUT);
-        }
-    
-        protected virtual void HandleCollective()
-        {
-            CollectiveInput = Input.GetAxis(COLLECTIVE_INPUT);
-        }
-
+        protected virtual void HandleThrottle() => RawThrottleInput = Input.GetAxis(THROTTLE_INPUT);
+        
+        protected virtual void HandlePedal() => PedalInput = Input.GetAxis(PEDAL_INPUT);
+        
+        protected virtual void HandleCollective() => CollectiveInput = Input.GetAxis(COLLECTIVE_INPUT);
+        
         protected virtual void HandleCyclic()
         {
             float x = horizontalInput;
@@ -69,12 +66,14 @@ namespace Helicopter_Game.Scripts.Old_Input
         {
             StickyThrottle += RawThrottleInput * Time.deltaTime;
             StickyThrottle = Mathf.Clamp01(StickyThrottle);
+            //Debug.Log("StickyThrottle: " + StickyThrottle);
         }
 
         protected void HandleStickyCollective()
         {
-            StickyCollectiveInput += -CollectiveInput * Time.fixedDeltaTime;
+            StickyCollectiveInput += -CollectiveInput * Time.deltaTime;
             StickyCollectiveInput = Mathf.Clamp01(StickyCollectiveInput);
+            //Debug.Log("StickyCollective: " + StickyCollectiveInput);
         }
     }
 } 
