@@ -24,7 +24,7 @@ namespace Helicopter_Game.Scripts.Rotors
             // dps / 360 — делим градусы на 360 (градусов в одном полном обороте), чтобы узнать, сколько оборотов делает винт за одну секунду.
             // * 60f — умножаем на 60 (секунд в минуте), чтобы получить количество оборотов в минуту (RPM).
             CurrentRPMs = (dps / 360) * 60f;
-            Debug.Log(CurrentRPMs);
+            //Debug.Log(CurrentRPMs);
             // new
             transform.Rotate(Vector3.up, dps * Time.deltaTime * 0.5f);
             // new
