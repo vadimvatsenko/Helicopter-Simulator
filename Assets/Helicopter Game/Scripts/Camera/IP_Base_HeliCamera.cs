@@ -13,7 +13,8 @@ namespace Helicopter_Game.Scripts.Camera
         protected Vector3 refVelocity;
         protected Vector3 targetFlatFwd;
         protected Action updateEvent;
-        
+
+        public Rigidbody Rb => rb;
         
         protected virtual void FixedUpdate()
         {
