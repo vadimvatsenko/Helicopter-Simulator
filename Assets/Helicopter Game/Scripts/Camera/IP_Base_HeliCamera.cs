@@ -11,10 +11,17 @@ namespace Helicopter_Game.Scripts.Camera
         
         protected Vector3 wantedPos;
         protected Vector3 refVelocity;
+        protected Vector3 targetFlatFwd;
         protected Action updateEvent;
+        
         
         protected virtual void FixedUpdate()
         {
+            
+            targetFlatFwd = rb.transform.forward;
+            targetFlatFwd.y  = 0;
+            targetFlatFwd.Normalize();
+            
             updateEvent?.Invoke();
         }
 
