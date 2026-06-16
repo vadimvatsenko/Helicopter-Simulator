@@ -31,12 +31,15 @@ namespace Helicopter_Game.Scripts.Rotors
 
         private void OnEnable()
         {
-            blurMaterial.SetTexture("_MainTex", blurTextures[0]);
+            //blurMaterial.SetTexture("_MainTex", null);
+            blurMaterial.SetColor("_MainTex", new Color(0f, 0f, 0f, 0f));
         }
 
         private void OnDisable()
         {
-            blurMaterial.SetTexture("_MainTex", blurTextures[0]);
+            //blurMaterial.SetTexture("_MainTex", blurTextures[0]);
+            blurMaterial.SetColor("_MainTex", new Color(0f, 0f, 0f, 0f));
+            //blurMaterial.SetTexture("_MainTex", null);
         }
 
         
@@ -63,6 +66,7 @@ namespace Helicopter_Game.Scripts.Rotors
             
             if (blurTextureIndex > 2 && blurTextures.Count > 0)
             {
+                blurMaterial.SetColor("_MainTex", new Color(255f, 255f, 255f, 255f));
                 HandleVisibleBlades(false);
             }
             else
@@ -73,6 +77,7 @@ namespace Helicopter_Game.Scripts.Rotors
 
         private void HandleVisibleBlades(bool visible)
         {
+            
             foreach (var blade in rotorsList)
             {
                 blade.SetActive(visible);
