@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &135130858925911491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6288347051912504763}
+  m_Layer: 0
+  m_Name: FPS_Camera_Rig
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6288347051912504763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135130858925911491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6069738888476369008}
+  - {fileID: 4352903054829623426}
+  m_Father: {fileID: 8014965010676508314}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245775198147214342
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9079807836792503387
 Transform:
   m_ObjectHideFlags: 0
@@ -2239,6 +2272,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5951078189075165924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4352903054829623426}
+  m_Layer: 0
+  m_Name: FPS_Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4352903054829623426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951078189075165924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6288347051912504763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6010891502661000256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2416,7 @@ Transform:
   m_GameObject: {fileID: 6050268007315167179}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.162, z: 0}
   m_LocalScale: {x: 4.5, y: 4.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2980,6 +3044,7 @@ Transform:
   - {fileID: 24430937226298517}
   - {fileID: 8930841906149294309}
   - {fileID: 5261335181983884676}
+  - {fileID: 6288347051912504763}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &-5421381415970513684
@@ -2991,8 +3056,8 @@ Rigidbody:
   m_GameObject: {fileID: 7540817451839241093}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3022,6 +3087,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputType: 1
+  onCameraButtonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Helicopter_Game.Scripts.Camera.IP_Camera_Manager,
+          Assembly-CSharp
+        m_MethodName: SwitchCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5671510951964065788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3034,6 +3115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c6325bd14ac6d478c7ca67415af75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camButton: 99
 --- !u!114 &6561846038703911803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3046,6 +3128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc4dcaf80b493940af109a33c069160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camButton: 99
 --- !u!114 &7771445289853695244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3058,6 +3141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a5b05e34b1472aa9a3473501776a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camButton: 99
 --- !u!114 &7462668459006034174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3070,7 +3154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e8fd5ff7d3b9146bba5656a8c8e768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weightInPnd: 10
+  weightInPnd: 4000
   engines:
   - {fileID: 2249961689998042872}
   rotorController: {fileID: 5333881759055607693}
@@ -3086,7 +3170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b0abddcc793fe449d6370e50bfb1a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiftForce: 3
+  maxLiftForce: 5
+  tailForce: 2
+  cyclicForce: 2
+  cyclicForceMultiplier: 1000
+  autoLevelForce: 2
 --- !u!1 &7767769055739475271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,7 +3311,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e7c3198a01922d240b128a02f16b0f73, type: 3}
   - {fileID: 2800000, guid: fd5bdfd071ee2674399772bd38828c4d, type: 3}
   - {fileID: 2800000, guid: 1c739f0df37149547b83ee86f1b71ab5, type: 3}
-  maxDps: 3000
+  maxDps: 2700
 --- !u!1 &8376490145435491142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,6 +3484,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8474063049727013860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6069738888476369008}
+  m_Layer: 0
+  m_Name: FPS_LookIt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6069738888476369008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8474063049727013860}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.342, y: 0.707, z: -1.7101135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6288347051912504763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8528786204272445339
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ namespace Helicopter_Game.Scripts.Camera
         private void OnEnable() => updateEvent += UpdateCamera;
         private void OnDisable() => updateEvent -= UpdateCamera;
         
-        public void UpdateCamera()
+        protected virtual void UpdateCamera()
         {
             wantedPos = rb.position + (targetFlatFwd * distance) + (Vector3.up * height);
             transform.position = Vector3.SmoothDamp(transform.position, wantedPos, ref refVelocity, smoothSpeed);

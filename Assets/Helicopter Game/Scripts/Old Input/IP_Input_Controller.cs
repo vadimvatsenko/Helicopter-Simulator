@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Helicopter_Game.Scripts.Old_Input
@@ -8,6 +9,10 @@ namespace Helicopter_Game.Scripts.Old_Input
     {
         [Header("Input Components")]
         [SerializeField] private InputType inputType = InputType.KeyBoard;
+        [Space]
+        [Header("Input Events")]
+        [SerializeField] private UnityEvent onCameraButtonPressed = new UnityEvent();
+        
         private IP_KeyboardHeli_Input keyboardInput;
         private IP_XboxHeli_Input xboxInput;
         private IP_MobileHeli_Input mobileInput;
@@ -60,7 +65,8 @@ namespace Helicopter_Game.Scripts.Old_Input
         /// чтобы игроку не нужно было непрерывно удерживать клавишу подъема/спуска.
         /// </summary>
         public float StickyCollectiveInput { get; private set; }
-
+        public bool CameraInput { get; protected set; }
+        
         private void Start()
         {
             keyboardInput = GetComponent<IP_KeyboardHeli_Input>();
@@ -71,11 +77,6 @@ namespace Helicopter_Game.Scripts.Old_Input
 
         private void Update()
         {
-            /*Debug.Log("Throttle: " + ThrottleInput);
-            Debug.Log("Collective: " + CollectiveInput);
-            Debug.Log("Pedal: " + PedalInput);
-            Debug.Log("StickyThrottle: " + StickyThrottle);
-            Debug.Log("StickyCollective: " + StickyCollectiveInput);*/
             switch (inputType)
             {
                 case InputType.KeyBoard:
@@ -85,6 +86,7 @@ namespace Helicopter_Game.Scripts.Old_Input
                     CyclicInput = keyboardInput.CyclicInput;
                     StickyThrottle = keyboardInput.StickyThrottle;
                     StickyCollectiveInput = keyboardInput.StickyCollectiveInput;
+                    CameraInput = keyboardInput.CamInput;
                     break;
                 case InputType.XBox:
                     ThrottleInput = xboxInput.RawThrottleInput;
@@ -93,12 +95,18 @@ namespace Helicopter_Game.Scripts.Old_Input
                     CyclicInput = xboxInput.CyclicInput;
                     StickyThrottle = xboxInput.StickyThrottle;  
                     StickyCollectiveInput = xboxInput.StickyCollectiveInput;
+                    CameraInput = xboxInput.CamInput;
                     break;
                 case InputType.Mobile:
                     //
                     break;
                 default:
                     break;
+            }
+            
+            if (CameraInput)
+            {
+                onCameraButtonPressed?.Invoke();
             }
         }
         

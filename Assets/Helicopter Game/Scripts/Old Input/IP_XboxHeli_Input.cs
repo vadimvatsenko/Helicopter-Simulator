@@ -10,6 +10,7 @@ namespace Helicopter_Game.Scripts.Old_Input
         private const string XBOX_PEDAL = "XBoxPedal";
         private const string XBOX_THROTTLE_UP = "XBoxThrottleUp";
         private const string XBOX_THROTTLE_DOWN = "XBoxThrottleDown";
+        private const string XBOX_CAMERA_BUTTON = "XBoxCamBtn";
         
         protected override void HandleThrottle()
         {
@@ -31,6 +32,11 @@ namespace Helicopter_Game.Scripts.Old_Input
         protected override void HandlePedal()
         {
             PedalInput = Input.GetAxis(XBOX_PEDAL);
+        }
+
+        protected override void HandleCamBtn()
+        {
+            CamInput = Input.GetButtonDown(XBOX_CAMERA_BUTTON);
         }
     }
 }
