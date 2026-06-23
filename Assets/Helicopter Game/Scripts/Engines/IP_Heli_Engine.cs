@@ -16,7 +16,8 @@ namespace Helicopter_Game.Scripts.Engines
         /// <summary>
         /// Кривая анимации
         /// </summary>
-        [SerializeField] private AnimationCurve powerCurve = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
+        [SerializeField] private AnimationCurve powerCurve 
+            = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
 
         /// <summary>
         /// текущая лошадиная сила

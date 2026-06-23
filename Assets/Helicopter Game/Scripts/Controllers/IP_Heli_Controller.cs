@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Helicopter_Game.Scripts.Characteristics;
 using Helicopter_Game.Scripts.Engines;
