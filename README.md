@@ -39,3 +39,9 @@ Scripts/
 ├── Rigidbodies/      # Custom Rigidbody abstractions and physics body controllers[cite: 1]
 ├── Rotors/           # Rotor interfaces and dynamic motion-blur visual effects[cite: 1]
 └── Testing/          # Isolated sandbox components for calculating Forces, Hover, Weight, and Torque[cite: 1]
+
+📝 Roadmap
+[x] Implement robust Hover, Weight, and Torque physical tests[cite: 1].
+[x] Build custom inspector layout for advanced camera tracking setup[cite: 1].
+[ ] Migrate the legacy input pipeline (Old Input[cite: 1]) to the new Unity Input System package.
+[ ] Implement fully integrated VR interactions (XR Interaction Toolkit) for physical cockpit controls.
