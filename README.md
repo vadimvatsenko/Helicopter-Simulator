@@ -1,7 +1,7 @@
 # Advanced Helicopter Physics & Camera System
 
-![Unity Version](https://img.shields.io/badge/Unity-2022.3%20LTS-blue)
-![C# Version](https://img.shields.io/badge/C%23-9.0-green)
+![Unity Version](https://img.shields.io/badge/Unity-6.3%20LTS-blue)
+![C# Version](https://img.shields.io/badge/C%23-10.0-green)
 ![Platform](https://img.shields.io/badge/Platform-PC%20%7C%20VR-orange)
 
 A component-based flight simulation framework for Unity, featuring a physically accurate helicopter controller, decoupled input abstraction, and a dynamic camera management system. 
