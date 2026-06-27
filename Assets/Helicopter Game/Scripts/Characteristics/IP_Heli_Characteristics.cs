@@ -98,7 +98,6 @@ namespace Helicopter_Game.Scripts.Characteristics
             // Calculate angle
             forwardDot = Vector3.Dot(transform.up, flatFwd);
             rightDot = Vector3.Dot(transform.up, flatRight);
-            //Debug.Log(string.Format("Fwd {0} - Right {1}", flatFwd.ToString("00"), flatRight.ToString("00")));
         }
     }
 }
