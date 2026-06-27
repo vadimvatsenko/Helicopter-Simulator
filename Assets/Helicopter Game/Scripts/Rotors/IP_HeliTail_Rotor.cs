@@ -14,8 +14,11 @@ public class IP_HeliTail_Rotor : MonoBehaviour, IP_IHeliRotor
     public void UpdateRotors(float dps,  IP_Input_Controller input)
     {
         transform.Rotate(Vector3.right, dps * rotationSpeedModifer);
-        
-        lRotor.localRotation = Quaternion.Euler(0, input.PedalInput * maxPitch, 0);
-        rRotor.localRotation = Quaternion.Euler(0, -input.PedalInput * maxPitch, 0);
+
+        if (lRotor && rRotor)
+        {
+            lRotor.localRotation = Quaternion.Euler(0, input.PedalInput * maxPitch, 0);
+            rRotor.localRotation = Quaternion.Euler(0, -input.PedalInput * maxPitch, 0);
+        }
     }
 }

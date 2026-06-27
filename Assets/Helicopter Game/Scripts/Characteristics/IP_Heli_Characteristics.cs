@@ -10,7 +10,7 @@ namespace Helicopter_Game.Scripts.Characteristics
         [SerializeField] protected float maxLiftForce = 100f;
         [Space(10)]
         [Header("Tail Rotor Properties")]
-        [SerializeField] private float tailForce = 2f;
+        [SerializeField] protected float tailForce = 2f;
         [Space(10)]
         [Header("Cyclic Properties")]
         [SerializeField] protected float cyclicForce = 2f;

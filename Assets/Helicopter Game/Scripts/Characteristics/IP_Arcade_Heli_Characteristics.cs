@@ -5,6 +5,10 @@ namespace Helicopter_Game.Scripts.Characteristics
 {
     public class IP_Arcade_Heli_Characteristics : IP_Heli_Characteristics
     {
+        private float yRot = 0f;
+        private float xRot = 0f;
+        private float zRot = 0f;
+        
         protected override void HandleLift(Rigidbody rb, IP_Input_Controller input)
         {
             // зависаю в воздухе
@@ -26,7 +30,10 @@ namespace Helicopter_Game.Scripts.Characteristics
 
         protected override void HandlePedals(Rigidbody rb, IP_Input_Controller input)
         {
-            base.HandlePedals(rb, input);
+            yRot += input.PedalInput * tailForce;
+            
+            Quaternion wantedRot = Quaternion.Euler(0f, yRot, 0f);
+            rb.MoveRotation(wantedRot);
         }
     }
 }

@@ -25,15 +25,17 @@ namespace Helicopter_Game.Scripts.Rotors
             CurrentRPMs = (dps / 360) * 60f;
             //Debug.Log(CurrentRPMs);
             // new
-            transform.Rotate(Vector3.up, dps * Time.deltaTime * 0.5f);
+            transform.Rotate(Vector3.forward, dps * Time.deltaTime * 0.5f);
             // new
             Vector3 descNormal = Vector3.Normalize(transform.up + new Vector3(-cyclicVal.x, 0f, -cyclicVal.y));
             // new
             cyclicVal = input.CyclicInput;
-            
-            lRotor.localRotation = Quaternion.Euler(-input.StickyCollectiveInput * maxPitch, 0, 0);
-            rRotor.localRotation = Quaternion.Euler(input.StickyCollectiveInput * maxPitch, 0, 0);
-            
+
+            if (lRotor && rRotor)
+            {
+                lRotor.localRotation = Quaternion.Euler(-input.StickyCollectiveInput * maxPitch, 0, 0);
+                rRotor.localRotation = Quaternion.Euler(input.StickyCollectiveInput * maxPitch, 0, 0);
+            }
         }
     }
 }
