@@ -1,5 +1,7 @@
 using Helicopter_Game.Scripts.Controllers;
+using Helicopter_Game.Scripts.Engines;
 using Helicopter_Game.Scripts.Rigidbodies;
+using Helicopter_Game.Scripts.Rotors;
 using UnityEngine;
 using UnityEditor;
 
@@ -26,12 +28,41 @@ namespace Helicopter_Game.Scripts.Editor.Menus
             GameObject audioGRP = new GameObject("Audio_GRP");
             GameObject graphicsGRP = new GameObject("Graphics_GRP");
             GameObject colGPR = new GameObject("Colliders_GPR");
+            GameObject engineGPR = new GameObject("Engine_GPR");
+            GameObject rotorGPR = new GameObject("Rotor_GPR");
+            
+            SetupRotorGRP(rotorGPR);
+            SetupEngineGRP(engineGPR);
             
             audioGRP.transform.SetParent(helicopter.transform);
             graphicsGRP.transform.SetParent(helicopter.transform);
             colGPR.transform.SetParent(helicopter.transform);
+            engineGPR.transform.SetParent(helicopter.transform);
+            rotorGPR.transform.SetParent(helicopter.transform);
             
             Selection.activeGameObject = helicopter;
+        }
+
+        public static void SetupRotorGRP(GameObject rotorGo)
+        {
+            rotorGo.AddComponent<IP_HeliRotor_Controller>();
+            
+            GameObject mainGPR = new GameObject("Main_Rotor");
+            GameObject tailGPR = new GameObject("Tail_Rotor");
+            
+            mainGPR.AddComponent<IP_HeliMain_Rotor>();
+            tailGPR.AddComponent<IP_HeliTail_Rotor>();
+            
+            mainGPR.transform.SetParent(rotorGo.transform);
+            tailGPR.transform.SetParent(rotorGo.transform);
+        }
+
+        public static void SetupEngineGRP(GameObject engineGo)
+        {
+            GameObject engineGRP = new GameObject("Main_Engine");
+            engineGRP.AddComponent<IP_Heli_Engine>();
+            
+            engineGRP.transform.SetParent(engineGo.transform);
         }
     }
 }

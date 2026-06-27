@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7c71a85e3931a40809345f14a4e924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startIndexCamera: 2
+  startIndexCamera: 0
 --- !u!4 &1091816791
 Transform:
   m_ObjectHideFlags: 0
@@ -1148,6 +1148,10 @@ PrefabInstance:
       value: 0.676
       objectReference: {fileID: 0}
     - target: {fileID: 3739797346930979890, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
+      propertyPath: inputType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739797346930979890, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: onCameraButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1091816790}
@@ -1185,7 +1189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1193,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.710114
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
       propertyPath: m_LocalRotation.w
