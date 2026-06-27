@@ -13,7 +13,7 @@ namespace Helicopter_Game.Scripts.Characteristics
         [SerializeField] private float tailForce = 2f;
         [Space(10)]
         [Header("Cyclic Properties")]
-        [SerializeField] private float cyclicForce = 2f;
+        [SerializeField] protected float cyclicForce = 2f;
         [SerializeField] private float cyclicForceMultiplier = 1000f;
         [Space(10)]
         [Header("Auto Level Properties")]

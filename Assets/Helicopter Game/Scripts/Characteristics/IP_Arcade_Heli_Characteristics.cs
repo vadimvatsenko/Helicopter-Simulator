@@ -17,7 +17,11 @@ namespace Helicopter_Game.Scripts.Characteristics
         
         protected override void HandleCyclic(Rigidbody rb, IP_Input_Controller input)
         {
-            base.HandleCyclic(rb, input);
+            Vector3 fwdDir = input.CyclicInput.y * flatFwd;
+            Vector3 rightDir = input.CyclicInput.x * flatRight;
+            Vector3 finalDir = (fwdDir + rightDir).normalized;
+            
+            rb.AddForce(finalDir * cyclicForce, ForceMode.Acceleration);
         }
 
         protected override void HandlePedals(Rigidbody rb, IP_Input_Controller input)

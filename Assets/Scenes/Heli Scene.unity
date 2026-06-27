@@ -254,7 +254,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 169055979}
-  - component: {fileID: 169055980}
   m_Layer: 0
   m_Name: Tail_Rotor
   m_TagString: Untagged
@@ -278,22 +277,6 @@ Transform:
   - {fileID: 241236409343506358}
   m_Father: {fileID: 1915866689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &169055980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169055978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec83fcdb5d597446bcf464519e8cb05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeedModifer: 1.5
-  lRotor: {fileID: 241236409343506358}
-  rRotor: {fileID: 241236409343506358}
-  maxPitch: 45
 --- !u!1001 &241427366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1266,7 +1249,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076855077}
-  - component: {fileID: 1076855078}
   m_Layer: 0
   m_Name: Main_Rotor
   m_TagString: Untagged
@@ -1290,22 +1272,6 @@ Transform:
   - {fileID: 235949120001572848}
   m_Father: {fileID: 1915866689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1076855078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076855076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffdeb9203afcecb46ac5713ce50cb1f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lRotor: {fileID: 235949120001572848}
-  rRotor: {fileID: 235949120001572848}
-  maxPitch: 35
-  radius: 2
 --- !u!1 &1091816789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,7 +1943,7 @@ Transform:
   m_GameObject: {fileID: 1420970230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0}
+  m_LocalPosition: {x: 0, y: 2.1766992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2001,9 +1967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad65ee1cdbee1e448872a8e10c835385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiftForce: 100
+  maxLiftForce: 20
   tailForce: 2
-  cyclicForce: 2
+  cyclicForce: 20
   cyclicForceMultiplier: 1000
   autoLevelForce: 2
 --- !u!1 &1438345691
