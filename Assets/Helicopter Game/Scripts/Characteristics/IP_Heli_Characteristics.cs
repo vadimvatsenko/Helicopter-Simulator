@@ -7,7 +7,7 @@ namespace Helicopter_Game.Scripts.Characteristics
     public class IP_Heli_Characteristics : MonoBehaviour
     {
         [Header("Lift Properties")] 
-        [SerializeField] private float maxLiftForce = 100f;
+        [SerializeField] protected float maxLiftForce = 100f;
         [Space(10)]
         [Header("Tail Rotor Properties")]
         [SerializeField] private float tailForce = 2f;

@@ -11,7 +11,6 @@ namespace Helicopter_Game.Scripts.Rotors
         [SerializeField] private Transform rRotor;
         // максимальный угол поворота лопасти
         [SerializeField] private float maxPitch = 35f;
-
         [SerializeField] private float radius = 2f;
 
         private Vector2 cyclicVal;

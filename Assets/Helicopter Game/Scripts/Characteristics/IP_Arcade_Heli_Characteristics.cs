@@ -3,11 +3,16 @@ using UnityEngine;
 
 namespace Helicopter_Game.Scripts.Characteristics
 {
-    public class IP_Arcade_Heli_Characteructics : IP_Heli_Characteristics
+    public class IP_Arcade_Heli_Characteristics : IP_Heli_Characteristics
     {
         protected override void HandleLift(Rigidbody rb, IP_Input_Controller input)
         {
-            base.HandleLift(rb, input);
+            // зависаю в воздухе
+            Vector3 liftForce = transform.up * (Physics.gravity.magnitude * rb.mass);
+            rb.AddForce(liftForce, ForceMode.Force);
+            //
+            
+            rb.AddForce(Vector3.up * input.ThrottleInput * maxLiftForce, ForceMode.Acceleration);
         }
         
         protected override void HandleCyclic(Rigidbody rb, IP_Input_Controller input)
