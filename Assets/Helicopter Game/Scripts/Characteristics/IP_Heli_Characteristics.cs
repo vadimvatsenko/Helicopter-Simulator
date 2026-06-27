@@ -22,10 +22,10 @@ namespace Helicopter_Game.Scripts.Characteristics
         private IP_HeliMain_Rotor mainRotor;
         private IP_HeliTail_Rotor tailRotor;
 
-        private Vector3 flatFwd;
-        private float forwardDot;
-        private Vector3 flatRight;
-        private float rightDot;
+        protected Vector3 flatFwd;
+        protected float forwardDot;
+        protected Vector3 flatRight;
+        protected float rightDot;
 
         private void Start()
         {
