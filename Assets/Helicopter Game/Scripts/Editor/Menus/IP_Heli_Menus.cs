@@ -31,8 +31,8 @@ namespace Helicopter_Game.Scripts.Editor.Menus
             GameObject engineGPR = new GameObject("Engine_GPR");
             GameObject rotorGPR = new GameObject("Rotor_GPR");
             
-            SetupRotorGRP(rotorGPR);
-            SetupEngineGRP(engineGPR);
+            SetupRotorGRP(rotorGPR, controller);
+            SetupEngineGRP(engineGPR, controller);
             
             audioGRP.transform.SetParent(helicopter.transform);
             graphicsGRP.transform.SetParent(helicopter.transform);
@@ -43,24 +43,26 @@ namespace Helicopter_Game.Scripts.Editor.Menus
             Selection.activeGameObject = helicopter;
         }
 
-        public static void SetupRotorGRP(GameObject rotorGo)
+        public static void SetupRotorGRP(GameObject rotorGo, IP_Heli_Controller controller)
         {
-            rotorGo.AddComponent<IP_HeliRotor_Controller>();
+            IP_HeliRotor_Controller heliRotorController = rotorGo.AddComponent<IP_HeliRotor_Controller>();
+            controller.RotorController = heliRotorController;
             
             GameObject mainGPR = new GameObject("Main_Rotor");
             GameObject tailGPR = new GameObject("Tail_Rotor");
             
-            mainGPR.AddComponent<IP_HeliMain_Rotor>();
-            tailGPR.AddComponent<IP_HeliTail_Rotor>();
+            IP_HeliMain_Rotor mainRotor = mainGPR.AddComponent<IP_HeliMain_Rotor>();
+            IP_HeliTail_Rotor tailRotor = tailGPR.AddComponent<IP_HeliTail_Rotor>();
             
             mainGPR.transform.SetParent(rotorGo.transform);
             tailGPR.transform.SetParent(rotorGo.transform);
         }
 
-        public static void SetupEngineGRP(GameObject engineGo)
+        public static void SetupEngineGRP(GameObject engineGo, IP_Heli_Controller controller)
         {
             GameObject engineGRP = new GameObject("Main_Engine");
-            engineGRP.AddComponent<IP_Heli_Engine>();
+            IP_Heli_Engine engine = engineGRP.AddComponent<IP_Heli_Engine>();
+            controller.AddEngine(engine);
             
             engineGRP.transform.SetParent(engineGo.transform);
         }

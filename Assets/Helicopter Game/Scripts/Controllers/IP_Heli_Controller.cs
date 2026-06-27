@@ -19,6 +19,12 @@ namespace Helicopter_Game.Scripts.Controllers
         
         private IP_Heli_Characteristics characteristics;
         private IP_Input_Controller input;
+
+        public IP_HeliRotor_Controller RotorController
+        {
+            get { return rotorController; }
+            set { rotorController = value; }
+        }
         
         protected override void Start()
         {
@@ -56,5 +62,7 @@ namespace Helicopter_Game.Scripts.Controllers
                 //Debug.Log(finalPower);
             }
         }
+
+        public void AddEngine(IP_Heli_Engine engine) => engines.Add(engine);
     }
 }

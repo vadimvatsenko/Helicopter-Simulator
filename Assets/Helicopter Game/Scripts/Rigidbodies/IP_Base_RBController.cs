@@ -11,7 +11,7 @@ namespace Helicopter_Game.Scripts.Rigidbodies
         [Header("Weight Properties In Pounds")] 
         [SerializeField] private float weightInPnd = 100f;
         // объект центра тяжести
-        protected Transform cog;
+        [SerializeField] private Transform cog;
         
         protected Rigidbody rb;
         protected float weight;
