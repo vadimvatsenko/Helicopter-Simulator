@@ -40,7 +40,7 @@ public class IP_Base_Weapon : MonoBehaviour, IP_IWeapon
     
     protected virtual void HandleProjectile()
     {
-        
+        Instantiate(projectilePrefab, muzzlePos.position, Quaternion.LookRotation(muzzlePos.forward));
     }
     
     protected virtual void HandleAudioSource()
