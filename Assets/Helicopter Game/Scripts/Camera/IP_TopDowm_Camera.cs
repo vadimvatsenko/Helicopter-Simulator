@@ -12,7 +12,12 @@ namespace Helicopter_Game.Scripts.Camera
         
         public void UpdateCamera()
         {
-            Debug.Log("Updating camera");
+            Vector3 targetPos = Rb.position;
+            targetPos.y = 0f;
+            
+            WantedPos = (Vector3.back * -distance) + (Vector3.up * height);
+            transform.position = targetPos + WantedPos;
+            transform.LookAt(lookAtTarget.position);
         }
     }
 }
