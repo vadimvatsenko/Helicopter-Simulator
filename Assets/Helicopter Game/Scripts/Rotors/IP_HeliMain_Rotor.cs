@@ -6,6 +6,7 @@ namespace Helicopter_Game.Scripts.Rotors
     public class IP_HeliMain_Rotor : MonoBehaviour, IP_IHeliRotor
     {
         [Header("Main Rotor Properties")] 
+        [SerializeField] private bool isArcade = false;
         // left rotor // левая и правая лопасть 
         [SerializeField] private Transform lRotor;
         [SerializeField] private Transform rRotor;
@@ -25,13 +26,14 @@ namespace Helicopter_Game.Scripts.Rotors
             CurrentRPMs = (dps / 360) * 60f;
             //Debug.Log(CurrentRPMs);
             // new
-            transform.Rotate(Vector3.up, dps * Time.deltaTime * 0.5f);
+            Vector3 rotorDir = isArcade ? Vector3.back : Vector3.up;
+            transform.Rotate(rotorDir, dps * Time.deltaTime * 0.5f);
             // new
             Vector3 descNormal = Vector3.Normalize(transform.up + new Vector3(-_cyclicVal.x, 0f, -_cyclicVal.y));
             // new
             _cyclicVal = input.CyclicInput;
 
-            if (lRotor && rRotor)
+            if (!isArcade)
             {
                 lRotor.localRotation = Quaternion.Euler(-input.StickyCollectiveInput * maxPitch, 0, 0);
                 rRotor.localRotation = Quaternion.Euler(input.StickyCollectiveInput * maxPitch, 0, 0);
