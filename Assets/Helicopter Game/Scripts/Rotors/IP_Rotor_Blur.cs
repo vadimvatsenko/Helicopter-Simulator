@@ -11,14 +11,13 @@ namespace Helicopter_Game.Scripts.Rotors
         /// <summary>
         /// текстур всего 10, они будут изменяться в зависимости от скорости лопастей
         /// </summary>
-        [Header("Rotor Blur Properties")] [SerializeField]
-        private List<GameObject> rotorsList = new List<GameObject>();
+        [Header("Rotor Blur Properties")] 
+        [SerializeField] private List<GameObject> rotorsList = new List<GameObject>();
 
         /// <summary>
         /// GameObject blur - это 3D обьект Quad на него натянута текстура с материалом, эта текстура будет менятся
         /// </summary>
         [SerializeField] private GameObject blur;
-
         [SerializeField] private Material blurMaterial;
         [Space()] 
         [SerializeField] private List<Texture2D> blurTextures = new List<Texture2D>();
@@ -76,7 +75,6 @@ namespace Helicopter_Game.Scripts.Rotors
 
         private void HandleVisibleBlades(bool visible)
         {
-            
             foreach (var blade in rotorsList)
             {
                 blade.SetActive(visible);
