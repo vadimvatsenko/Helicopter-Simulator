@@ -19,7 +19,12 @@ public class IP_Base_Weapon : MonoBehaviour, IP_IWeapon
     {
         CurrentAmmo = maxAmmoCount;
     }
-    public void FireWeapon()
+    public virtual void FireWeapon()
+    {
+        Fire();
+    }
+
+    protected void Fire()
     {
         if (CurrentAmmo > 0)
         {

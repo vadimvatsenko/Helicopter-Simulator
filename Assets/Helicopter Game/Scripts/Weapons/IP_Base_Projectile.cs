@@ -9,6 +9,7 @@ namespace Helicopter_Game.Scripts.Weapons
         [Header("Base Projectile Properties")]
         [SerializeField] private float projectileSpeed = 200f;
         [SerializeField] private float damagePower = 50f;
+        [SerializeField] private float lifetime = 5f;
         
         protected Rigidbody Rb;
         protected SphereCollider col;
@@ -26,6 +27,7 @@ namespace Helicopter_Game.Scripts.Weapons
         public virtual void FireProjectile()
         {
             Rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
+            Destroy(gameObject, lifetime);
         }
     }
 }
