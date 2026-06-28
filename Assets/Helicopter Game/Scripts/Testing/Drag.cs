@@ -10,9 +10,9 @@ namespace Helicopter_Game.Scripts.Testing
     
         protected override void HandlePhysics()
         {
-            float currentSpeed = rb.linearVelocity.magnitude;
+            float currentSpeed = Rb.linearVelocity.magnitude;
             float finalDrag = dragFactor * currentSpeed;
-            rb.linearDamping = finalDrag;
+            Rb.linearDamping = finalDrag;
         }
     }
 }

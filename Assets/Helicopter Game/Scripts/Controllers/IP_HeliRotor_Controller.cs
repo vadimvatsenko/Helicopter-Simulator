@@ -8,11 +8,11 @@ namespace Helicopter_Game.Scripts.Controllers
 {
     public class IP_HeliRotor_Controller : MonoBehaviour
     {
-        private List<IP_IHeliRotor> heliRotors;
+        private List<IP_IHeliRotor> _heliRotors;
 
         private void Start()
         {
-            heliRotors = GetComponentsInChildren<IP_IHeliRotor>().ToList();
+            _heliRotors = GetComponentsInChildren<IP_IHeliRotor>().ToList();
         }
         
         public void UpdateRotors(IP_Input_Controller input, float currentRPM)
@@ -20,7 +20,7 @@ namespace Helicopter_Game.Scripts.Controllers
             // Degrees per second calculation
             //float dps = ((currentRPM * 360f) / 60f) * Time.fixedDeltaTime;
             
-            foreach (var heliRotor in heliRotors)
+            foreach (var heliRotor in _heliRotors)
             {
                 //heliRotor.UpdateRotors(dps, input);
                 heliRotor.UpdateRotors(currentRPM, input);

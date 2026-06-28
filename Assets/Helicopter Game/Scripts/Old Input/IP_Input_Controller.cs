@@ -13,9 +13,9 @@ namespace Helicopter_Game.Scripts.Old_Input
         [Header("Input Events")]
         [SerializeField] private UnityEvent onCameraButtonPressed = new UnityEvent();
         
-        private IP_KeyboardHeli_Input keyboardInput;
-        private IP_XboxHeli_Input xboxInput;
-        private IP_MobileHeli_Input mobileInput;
+        private IP_KeyboardHeli_Input _keyboardInput;
+        private IP_XboxHeli_Input _xboxInput;
+        private IP_MobileHeli_Input _mobileInput;
         
         /// <summary>
         /// 1. public float ThrottleInput { get; private set; }
@@ -69,9 +69,9 @@ namespace Helicopter_Game.Scripts.Old_Input
         
         private void Start()
         {
-            keyboardInput = GetComponent<IP_KeyboardHeli_Input>();
-            xboxInput = GetComponent<IP_XboxHeli_Input>();
-            mobileInput = GetComponent<IP_MobileHeli_Input>();
+            _keyboardInput = GetComponent<IP_KeyboardHeli_Input>();
+            _xboxInput = GetComponent<IP_XboxHeli_Input>();
+            _mobileInput = GetComponent<IP_MobileHeli_Input>();
             SetInputType(inputType);
         }
 
@@ -80,22 +80,22 @@ namespace Helicopter_Game.Scripts.Old_Input
             switch (inputType)
             {
                 case InputType.KeyBoard:
-                    ThrottleInput = keyboardInput.RawThrottleInput;
-                    CollectiveInput = keyboardInput.CollectiveInput;
-                    PedalInput = keyboardInput.PedalInput;
-                    CyclicInput = keyboardInput.CyclicInput;
-                    StickyThrottle = keyboardInput.StickyThrottle;
-                    StickyCollectiveInput = keyboardInput.StickyCollectiveInput;
-                    CameraInput = keyboardInput.CamInput;
+                    ThrottleInput = _keyboardInput.RawThrottleInput;
+                    CollectiveInput = _keyboardInput.CollectiveInput;
+                    PedalInput = _keyboardInput.PedalInput;
+                    CyclicInput = _keyboardInput.CyclicInput;
+                    StickyThrottle = _keyboardInput.StickyThrottle;
+                    StickyCollectiveInput = _keyboardInput.StickyCollectiveInput;
+                    CameraInput = _keyboardInput.CamInput;
                     break;
                 case InputType.XBox:
-                    ThrottleInput = xboxInput.RawThrottleInput;
-                    CollectiveInput = xboxInput.CollectiveInput;
-                    PedalInput = xboxInput.PedalInput;
-                    CyclicInput = xboxInput.CyclicInput;
-                    StickyThrottle = xboxInput.StickyThrottle;  
-                    StickyCollectiveInput = xboxInput.StickyCollectiveInput;
-                    CameraInput = xboxInput.CamInput;
+                    ThrottleInput = _xboxInput.RawThrottleInput;
+                    CollectiveInput = _xboxInput.CollectiveInput;
+                    PedalInput = _xboxInput.PedalInput;
+                    CyclicInput = _xboxInput.CyclicInput;
+                    StickyThrottle = _xboxInput.StickyThrottle;  
+                    StickyCollectiveInput = _xboxInput.StickyCollectiveInput;
+                    CameraInput = _xboxInput.CamInput;
                     break;
                 case InputType.Mobile:
                     //
@@ -116,21 +116,21 @@ namespace Helicopter_Game.Scripts.Old_Input
             {
                 case InputType.KeyBoard:
                     inputType = InputType.KeyBoard;
-                    keyboardInput.enabled = true;
-                    xboxInput.enabled = false;
-                    mobileInput.enabled = false;
+                    _keyboardInput.enabled = true;
+                    _xboxInput.enabled = false;
+                    _mobileInput.enabled = false;
                     break;
                 case InputType.XBox:
                     inputType = InputType.XBox;
-                    xboxInput.enabled = true;
-                    keyboardInput.enabled = false;
-                    mobileInput.enabled = false;
+                    _xboxInput.enabled = true;
+                    _keyboardInput.enabled = false;
+                    _mobileInput.enabled = false;
                     break;
                 case InputType.Mobile:
                     inputType = InputType.Mobile;
-                    mobileInput.enabled = true;
-                    xboxInput.enabled = false;
-                    keyboardInput.enabled = false;
+                    _mobileInput.enabled = true;
+                    _xboxInput.enabled = false;
+                    _keyboardInput.enabled = false;
                     break;
                 default:
                     break;

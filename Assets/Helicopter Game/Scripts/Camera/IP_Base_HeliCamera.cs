@@ -9,21 +9,21 @@ namespace Helicopter_Game.Scripts.Camera
         [SerializeField] protected Rigidbody rb;
         [SerializeField] protected Transform lookAtTarget;
         
-        protected Vector3 wantedPos;
-        protected Vector3 refVelocity;
-        protected Vector3 targetFlatFwd;
-        protected Action updateEvent;
+        protected Vector3 WantedPos;
+        protected Vector3 RefVelocity;
+        protected Vector3 TargetFlatFwd;
+        protected Action UpdateEvent;
 
         public Rigidbody Rb => rb;
         
         protected virtual void FixedUpdate()
         {
             
-            targetFlatFwd = rb.transform.forward;
-            targetFlatFwd.y  = 0;
-            targetFlatFwd.Normalize();
+            TargetFlatFwd = rb.transform.forward;
+            TargetFlatFwd.y  = 0;
+            TargetFlatFwd.Normalize();
             
-            updateEvent?.Invoke();
+            UpdateEvent?.Invoke();
         }
 
         protected void HandleCamera() { }

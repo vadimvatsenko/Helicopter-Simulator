@@ -6,6 +6,8 @@ namespace Helicopter_Game.Scripts.Rotors
 {
     public class IP_Rotor_Blur : MonoBehaviour, IP_IHeliRotor
     {
+        private static readonly int MainTex = Shader.PropertyToID("_MainTex");
+
         /// <summary>
         /// текстур всего 10, они будут изменяться в зависимости от скорости лопастей
         /// </summary>
@@ -18,8 +20,10 @@ namespace Helicopter_Game.Scripts.Rotors
         [SerializeField] private GameObject blur;
 
         [SerializeField] private Material blurMaterial;
-        [Space()] [SerializeField] List<Texture2D> blurTextures = new List<Texture2D>();
-        [Space()] [SerializeField] private float maxDps = 3000f;
+        [Space()] 
+        [SerializeField] private List<Texture2D> blurTextures = new List<Texture2D>();
+        [Space()] 
+        [SerializeField] private float maxDps = 3000f;
         
         /// <summary>
         /// Обновляет визуальное состояние ротора вертолета в зависимости от скорости его вращения.
@@ -31,12 +35,12 @@ namespace Helicopter_Game.Scripts.Rotors
 
         private void OnEnable()
         {
-            blurMaterial.SetTexture("_MainTex", blurTextures[0]);
+            blurMaterial.SetTexture(MainTex, blurTextures[0]);
         }
 
         private void OnDisable()
         {
-            blurMaterial.SetTexture("_MainTex", blurTextures[0]);
+            blurMaterial.SetTexture(MainTex, blurTextures[0]);
         }
         
         public void UpdateRotors(float dps, IP_Input_Controller input)

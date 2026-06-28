@@ -16,8 +16,8 @@ namespace Helicopter_Game.Scripts.Testing
         [SerializeField] private Transform hoverPosition;
         [SerializeField] private float groundCheckDistance = Mathf.Infinity;
         [SerializeField] private LayerMask whatIsGround;
-        private bool isGroundDetection;
-        private float currentDistanceToGround;
+        private bool _isGroundDetection;
+        private float _currentDistanceToGround;
         
         [Header("Torque Properties")]
         [SerializeField] private float torqueForce = 4f;
@@ -30,7 +30,7 @@ namespace Helicopter_Game.Scripts.Testing
         protected override void Start()
         {
             base.Start();
-            _weight = rb.mass * Physics.gravity.magnitude;
+            _weight = Rb.mass * Physics.gravity.magnitude;
         }
 
     
@@ -42,32 +42,32 @@ namespace Helicopter_Game.Scripts.Testing
             HandleDrag();
         }
 
-        private void HandleDrag() => rb.linearDamping = dragFactor * rb.linearVelocity.magnitude;
+        private void HandleDrag() => Rb.linearDamping = dragFactor * Rb.linearVelocity.magnitude;
 
-        private void HandleTorque() => rb.AddTorque(Vector3.up * torqueForce);
+        private void HandleTorque() => Rb.AddTorque(Vector3.up * torqueForce);
         
         private void CalculateGroundDistance()
         {
             RaycastHit hit;
-            isGroundDetection = Physics.Raycast(hoverPosition.position, Vector3.down, out hit, groundCheckDistance, whatIsGround);
+            _isGroundDetection = Physics.Raycast(hoverPosition.position, Vector3.down, out hit, groundCheckDistance, whatIsGround);
 
-            if (isGroundDetection)
+            if (_isGroundDetection)
             {
-                currentDistanceToGround = hit.distance;
+                _currentDistanceToGround = hit.distance;
             }
         }
 
         protected override void HandlePhysics()
         {
-            float groundDiff = hoverHight - currentDistanceToGround;
+            float groundDiff = hoverHight - _currentDistanceToGround;
             Vector3 finalHoverForce = Vector3.up * (groundDiff + 1);
-            rb.AddForce(finalHoverForce * _weight);
+            Rb.AddForce(finalHoverForce * _weight);
         }
 
         private void OnDrawGizmos()
         {
             float gizmoDistance = float.IsInfinity(groundCheckDistance) ? 100f : groundCheckDistance;
-            Gizmos.color = isGroundDetection ? Color.green : Color.red;
+            Gizmos.color = _isGroundDetection ? Color.green : Color.red;
             Gizmos.DrawRay(hoverPosition.position, Vector3.down * gizmoDistance);
         }
     }

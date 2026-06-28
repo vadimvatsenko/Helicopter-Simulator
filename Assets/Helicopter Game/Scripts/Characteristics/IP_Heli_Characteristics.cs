@@ -19,18 +19,18 @@ namespace Helicopter_Game.Scripts.Characteristics
         [Header("Auto Level Properties")]
         [SerializeField] float autoLevelForce = 2f;
         
-        private IP_HeliMain_Rotor mainRotor;
-        private IP_HeliTail_Rotor tailRotor;
+        private IP_HeliMain_Rotor _mainRotor;
+        private IP_HeliTail_Rotor _tailRotor;
 
-        protected Vector3 flatFwd;
-        protected float forwardDot;
-        protected Vector3 flatRight;
-        protected float rightDot;
+        protected Vector3 FlatFwd;
+        protected float ForwardDot;
+        protected Vector3 FlatRight;
+        protected float RightDot;
 
         private void Start()
         {
-            mainRotor = GetComponentInChildren<IP_HeliMain_Rotor>();
-            tailRotor = GetComponentInChildren<IP_HeliTail_Rotor>();
+            _mainRotor = GetComponentInChildren<IP_HeliMain_Rotor>();
+            _tailRotor = GetComponentInChildren<IP_HeliTail_Rotor>();
         }
         
         public void UpdateCharacteristics(Rigidbody rb, IP_Input_Controller input)
@@ -48,7 +48,7 @@ namespace Helicopter_Game.Scripts.Characteristics
         {
             Vector3 liftForce = transform.up * ((Physics.gravity.magnitude + maxLiftForce) * rb.mass);
             // почему 450, потому что CurrentRPMs 2700
-            float normalizedRPMs = mainRotor.CurrentRPMs / 450f;
+            float normalizedRPMs = _mainRotor.CurrentRPMs / 450f;
             rb.AddForce(liftForce * (Mathf.Pow(normalizedRPMs, 2f) * Mathf.Pow(input.StickyCollectiveInput, 2f)), ForceMode.Force);
             
             /*//левитация
@@ -63,8 +63,8 @@ namespace Helicopter_Game.Scripts.Characteristics
             float cyclicXForce = input.CyclicInput.y * cyclicForce;
             rb.AddRelativeTorque(Vector3.right * cyclicXForce, ForceMode.Acceleration);
             
-            Vector3 forwardVec = flatFwd * forwardDot;
-            Vector3 rightVec = flatRight * rightDot;
+            Vector3 forwardVec = FlatFwd * ForwardDot;
+            Vector3 rightVec = FlatRight * RightDot;
             Vector3 finalCyclicDir 
                 = Vector3.ClampMagnitude(forwardVec + rightVec, 1f) * (cyclicForce * cyclicForceMultiplier);
             //Debug.DrawRay(transform.position, finalCyclicDir, Color.green);
@@ -78,8 +78,8 @@ namespace Helicopter_Game.Scripts.Characteristics
         
         protected virtual void AutoLevel(Rigidbody rb)
         {
-            float rightForce = -forwardDot * autoLevelForce;
-            float forwardForce = rightDot * autoLevelForce;
+            float rightForce = -ForwardDot * autoLevelForce;
+            float forwardForce = RightDot * autoLevelForce;
             
             rb.AddRelativeTorque(Vector3.right * rightForce, ForceMode.Acceleration);
             rb.AddRelativeTorque(Vector3.forward * forwardForce, ForceMode.Acceleration);
@@ -87,17 +87,17 @@ namespace Helicopter_Game.Scripts.Characteristics
 
         protected virtual void CalculateAngles()
         {
-            flatFwd = transform.forward;
-            flatFwd.y = 0f;
-            flatFwd.Normalize();
+            FlatFwd = transform.forward;
+            FlatFwd.y = 0f;
+            FlatFwd.Normalize();
             
-            flatRight = transform.right;
-            flatRight.y = 0f;
-            flatRight.Normalize();
+            FlatRight = transform.right;
+            FlatRight.y = 0f;
+            FlatRight.Normalize();
             
             // Calculate angle
-            forwardDot = Vector3.Dot(transform.up, flatFwd);
-            rightDot = Vector3.Dot(transform.up, flatRight);
+            ForwardDot = Vector3.Dot(transform.up, FlatFwd);
+            RightDot = Vector3.Dot(transform.up, FlatRight);
         }
     }
 }

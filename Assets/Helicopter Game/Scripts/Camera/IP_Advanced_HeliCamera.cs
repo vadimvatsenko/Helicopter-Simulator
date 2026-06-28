@@ -14,9 +14,9 @@ namespace Helicopter_Game.Scripts.Camera
         [SerializeField] private float minVelocityForOrient = 5f;
         [SerializeField] private bool unUseHeliSelfRotate = true;
         
-        private float finalAngle;
-        private Vector3 wantedDir;
-        private float finalHeight;
+        private float _finalAngle;
+        private Vector3 _wantedDir;
+        private float _finalHeight;
 
         public float MinDistance
         {
@@ -30,20 +30,20 @@ namespace Helicopter_Game.Scripts.Camera
             set => maxDistance = value;
         }
         
-        private void OnEnable() => updateEvent += UpdateCamera;
-        private void OnDisable() => updateEvent -= UpdateCamera;
+        private void OnEnable() => UpdateEvent += UpdateCamera;
+        private void OnDisable() => UpdateEvent -= UpdateCamera;
         
         public void UpdateCamera()
         {
             // Get the flat direction
             Vector3 dirToTarget = transform.position - rb.position;
             dirToTarget.y = 0;
-            Vector3 normilizedDir = dirToTarget.normalized;
-            wantedDir = normilizedDir;
-            Debug.DrawRay(rb.position, wantedDir, Color.green);
+            Vector3 normalizedDir = dirToTarget.normalized;
+            _wantedDir = normalizedDir;
+            Debug.DrawRay(rb.position, _wantedDir, Color.green);
             
             // Find the angle between our Dir Vector and our Flat Forward
-            float angleToFwd = Vector3.SignedAngle(normilizedDir, targetFlatFwd, Vector3.up);
+            float angleToFwd = Vector3.SignedAngle(normalizedDir, TargetFlatFwd, Vector3.up);
 
             float wantedAngle = 0f;
             if (unUseHeliSelfRotate)
@@ -58,22 +58,22 @@ namespace Helicopter_Game.Scripts.Camera
                 wantedAngle = angleToFwd * Time.fixedDeltaTime;
             }
             
-            finalAngle = Mathf.Lerp(finalAngle, wantedAngle, Time.fixedDeltaTime * rotationSpeed);
-            wantedDir = Quaternion.AngleAxis(finalAngle, Vector3.up) * wantedDir;
+            _finalAngle = Mathf.Lerp(_finalAngle, wantedAngle, Time.fixedDeltaTime * rotationSpeed);
+            _wantedDir = Quaternion.AngleAxis(_finalAngle, Vector3.up) * _wantedDir;
             
             // re-position camera
-            wantedPos = rb.position + (wantedDir * dirToTarget.magnitude);
+            WantedPos = rb.position + (_wantedDir * dirToTarget.magnitude);
             float currentMagnitude = dirToTarget.magnitude;
 
             if (currentMagnitude < minDistance)
             {
                 float delta =  minDistance - currentMagnitude;
-                wantedPos += wantedDir * (delta * Time.fixedDeltaTime * catchUpModifirier);
+                WantedPos += _wantedDir * (delta * Time.fixedDeltaTime * catchUpModifirier);
             }
             else if (currentMagnitude > maxDistance)
             {
                 float delta =  currentMagnitude - maxDistance;
-                wantedPos -= wantedDir * (delta * Time.fixedDeltaTime * catchUpModifirier);
+                WantedPos -= _wantedDir * (delta * Time.fixedDeltaTime * catchUpModifirier);
             }
             
             // Take into account the height from the ground
@@ -87,10 +87,10 @@ namespace Helicopter_Game.Scripts.Camera
                     wantedHeight = minGroundHeight - hit.distance;
                 }
             }
-            finalHeight = Mathf.Lerp(finalHeight, wantedHeight, Time.fixedDeltaTime * 2f);
+            _finalHeight = Mathf.Lerp(_finalHeight, wantedHeight, Time.fixedDeltaTime * 2f);
             
             //Apply final Transformation
-            transform.position = wantedPos + (Vector3.up * finalHeight);
+            transform.position = WantedPos + (Vector3.up * _finalHeight);
             transform.LookAt(lookAtTarget);
         }
     }

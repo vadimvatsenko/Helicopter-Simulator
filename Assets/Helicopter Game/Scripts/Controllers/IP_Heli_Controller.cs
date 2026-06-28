@@ -17,20 +17,20 @@ namespace Helicopter_Game.Scripts.Controllers
         [Header("Helicopter Rotors")]
         [SerializeField] private IP_HeliRotor_Controller rotorController;
         
-        private IP_Heli_Characteristics characteristics;
-        private IP_Input_Controller input;
+        private IP_Heli_Characteristics _characteristics;
+        private IP_Input_Controller _input;
 
         public IP_HeliRotor_Controller RotorController
         {
-            get { return rotorController; }
-            set { rotorController = value; }
+            get => rotorController;
+            set => rotorController = value;
         }
         
         protected override void Start()
         {
             base.Start();
-            input = GetComponent<IP_Input_Controller>();
-            characteristics = GetComponent<IP_Heli_Characteristics>();
+            _input = GetComponent<IP_Input_Controller>();
+            _characteristics = GetComponent<IP_Heli_Characteristics>();
         }
 
         protected override void HandlePhysics()
@@ -44,20 +44,20 @@ namespace Helicopter_Game.Scripts.Controllers
         {
             if (engines.Count > 0)
             {
-                rotorController.UpdateRotors(input, engines[0].CurrentRPM);
+                rotorController.UpdateRotors(_input, engines[0].CurrentRPM);
             }
         }
 
         protected virtual void HandleCharacteristics()
         {
-            characteristics.UpdateCharacteristics(rb, input);
+            _characteristics.UpdateCharacteristics(Rb, _input);
         }
 
         protected virtual void HandleEngines()
         {
             for (int i = 0; i < engines.Count; i++)
             {
-                engines[i].UpdateEngine(input.StickyThrottle);
+                engines[i].UpdateEngine(_input.StickyThrottle);
                 float finalPower = engines[i].CurrentHP;
                 //Debug.Log(finalPower);
             }

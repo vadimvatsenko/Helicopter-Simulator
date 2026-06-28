@@ -6,19 +6,19 @@ namespace Helicopter_Game.Scripts.Testing
     {
         
         [SerializeField] private float torqueSpeed = 2f;
-        private Rigidbody rb;
+        private Rigidbody _rb;
         
         
         private void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            _rb = GetComponent<Rigidbody>();
         }
 
         private void FixedUpdate()
         {
-            if (rb)
+            if (_rb)
             {
-                rb.AddTorque(Vector3.up * torqueSpeed);
+                _rb.AddTorque(Vector3.up * torqueSpeed);
             }
         }
     }

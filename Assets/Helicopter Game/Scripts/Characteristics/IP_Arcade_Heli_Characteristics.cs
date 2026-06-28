@@ -9,11 +9,11 @@ namespace Helicopter_Game.Scripts.Characteristics
         [SerializeField] private float blankAngle = 35f;
         [SerializeField] private float blankSpeed = 1.5f;
         
-        private float yRot = 0f;
-        private float xRot = 0f;
-        private float zRot = 0f;
+        private float _yRot = 0f;
+        private float _xRot = 0f;
+        private float _zRot = 0f;
 
-        private Quaternion finalRot = Quaternion.identity;
+        private Quaternion _finalRot = Quaternion.identity;
         
         protected override void HandleLift(Rigidbody rb, IP_Input_Controller input)
         {
@@ -27,26 +27,26 @@ namespace Helicopter_Game.Scripts.Characteristics
         
         protected override void HandleCyclic(Rigidbody rb, IP_Input_Controller input)
         {
-            Vector3 fwdDir = input.CyclicInput.y * flatFwd;
-            Vector3 rightDir = input.CyclicInput.x * flatRight;
+            Vector3 fwdDir = input.CyclicInput.y * FlatFwd;
+            Vector3 rightDir = input.CyclicInput.x * FlatRight;
             Vector3 finalDir = (fwdDir + rightDir).normalized;
             
             rb.AddForce(finalDir * cyclicForce, ForceMode.Acceleration);
 
-            xRot = input.CyclicInput.y * blankAngle;
-            zRot = -input.CyclicInput.x * blankAngle;
+            _xRot = input.CyclicInput.y * blankAngle;
+            _zRot = -input.CyclicInput.x * blankAngle;
         }
 
         protected override void HandlePedals(Rigidbody rb, IP_Input_Controller input)
         {
-            yRot += input.PedalInput * tailForce;
+            _yRot += input.PedalInput * tailForce;
         }
 
         protected override void AutoLevel(Rigidbody rb)
         {
-            Quaternion wantedRot = Quaternion.Euler(xRot, yRot, zRot);
-            finalRot = Quaternion.Slerp(finalRot, wantedRot, Time.fixedDeltaTime * blankSpeed);
-            rb.MoveRotation(finalRot);
+            Quaternion wantedRot = Quaternion.Euler(_xRot, _yRot, _zRot);
+            _finalRot = Quaternion.Slerp(_finalRot, wantedRot, Time.fixedDeltaTime * blankSpeed);
+            rb.MoveRotation(_finalRot);
         }
     }
 }

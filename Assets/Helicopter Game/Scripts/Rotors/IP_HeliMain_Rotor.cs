@@ -13,7 +13,7 @@ namespace Helicopter_Game.Scripts.Rotors
         [SerializeField] private float maxPitch = 35f;
         [SerializeField] private float radius = 2f;
 
-        private Vector2 cyclicVal;
+        private Vector2 _cyclicVal;
         
         public float CurrentRPMs {get; private set;}
         
@@ -25,11 +25,11 @@ namespace Helicopter_Game.Scripts.Rotors
             CurrentRPMs = (dps / 360) * 60f;
             //Debug.Log(CurrentRPMs);
             // new
-            transform.Rotate(Vector3.forward, dps * Time.deltaTime * 0.5f);
+            transform.Rotate(Vector3.up, dps * Time.deltaTime * 0.5f);
             // new
-            Vector3 descNormal = Vector3.Normalize(transform.up + new Vector3(-cyclicVal.x, 0f, -cyclicVal.y));
+            Vector3 descNormal = Vector3.Normalize(transform.up + new Vector3(-_cyclicVal.x, 0f, -_cyclicVal.y));
             // new
-            cyclicVal = input.CyclicInput;
+            _cyclicVal = input.CyclicInput;
 
             if (lRotor && rRotor)
             {

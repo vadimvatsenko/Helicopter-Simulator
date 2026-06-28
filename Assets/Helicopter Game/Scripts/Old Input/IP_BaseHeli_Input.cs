@@ -6,8 +6,8 @@ namespace Helicopter_Game.Scripts.Old_Input
     public class IP_BaseHeli_Input : MonoBehaviour
     {
         [Header("Base Input Properties")]
-        protected float verticalInput = 0f;
-        protected float horizontalInput = 0f;
+        protected float VerticalInput = 0f;
+        protected float HorizontalInput = 0f;
 
         public void Update()
         {
@@ -16,8 +16,8 @@ namespace Helicopter_Game.Scripts.Old_Input
 
         protected virtual void HandleInput()
         {
-            verticalInput = Input.GetAxis("Vertical");
-            horizontalInput = Input.GetAxis("Horizontal");
+            VerticalInput = Input.GetAxis("Vertical");
+            HorizontalInput = Input.GetAxis("Horizontal");
         }
     }
 }

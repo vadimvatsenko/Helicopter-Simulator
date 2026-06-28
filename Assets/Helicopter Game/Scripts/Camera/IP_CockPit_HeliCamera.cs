@@ -13,12 +13,12 @@ namespace Helicopter_Game.Scripts.Camera
         
         private void OnEnable()
         {
-            updateEvent += UpdateCamera;
+            UpdateEvent += UpdateCamera;
         }
 
         private void OnDisable()
         {
-            updateEvent -= UpdateCamera;
+            UpdateEvent -= UpdateCamera;
         }
 
         public void UpdateCamera()

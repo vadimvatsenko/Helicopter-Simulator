@@ -52,8 +52,8 @@ namespace Helicopter_Game.Scripts.Old_Input
         
         protected virtual void HandleCyclic()
         {
-            float x = horizontalInput;
-            float y = verticalInput;
+            float x = HorizontalInput;
+            float y = VerticalInput;
             CyclicInput = new Vector2(x, y);
         }
     

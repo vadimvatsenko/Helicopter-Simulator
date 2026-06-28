@@ -10,7 +10,7 @@ namespace Helicopter_Game.Scripts.Testing
         [SerializeField] private float maxSpeed;
         [SerializeField] private Vector3 movementDirection = Vector3.right;
     
-        protected override void HandlePhysics() => rb.AddForce(movementDirection * maxSpeed, ForceMode.Impulse);
+        protected override void HandlePhysics() => Rb.AddForce(movementDirection * maxSpeed, ForceMode.Impulse);
    
     }
 }
