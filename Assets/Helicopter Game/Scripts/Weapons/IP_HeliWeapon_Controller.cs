@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Helicopter_Game.Scripts.Old_Input;
 using UnityEngine;
 
 namespace Helicopter_Game.Scripts.Weapons
@@ -6,16 +10,18 @@ namespace Helicopter_Game.Scripts.Weapons
     {
         [Header("Weapon Conteroller Propperties")]
         [SerializeField] public bool allowFiring = true;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
         
+        private List<IP_IWeapon> _weapons = new List<IP_IWeapon>();
+
+        private void Start()
+        {
+            _weapons = GetComponentsInChildren<IP_IWeapon>().ToList();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void UpdateWeapons(IP_Input_Controller input)
         {
-        
+            if (allowFiring)
+                _weapons.ForEach(w => w.FireWeapon());
         }
     }
 }

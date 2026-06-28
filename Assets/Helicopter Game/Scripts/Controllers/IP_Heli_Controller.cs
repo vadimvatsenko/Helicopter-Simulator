@@ -3,6 +3,7 @@ using Helicopter_Game.Scripts.Characteristics;
 using Helicopter_Game.Scripts.Engines;
 using Helicopter_Game.Scripts.Old_Input;
 using Helicopter_Game.Scripts.Rigidbodies;
+using Helicopter_Game.Scripts.Weapons;
 using UnityEngine;
 
 namespace Helicopter_Game.Scripts.Controllers
@@ -19,6 +20,7 @@ namespace Helicopter_Game.Scripts.Controllers
         
         private IP_Heli_Characteristics _characteristics;
         private IP_Input_Controller _input;
+        private IP_HeliWeapon_Controller _weaponController;
 
         public IP_HeliRotor_Controller RotorController
         {
@@ -31,6 +33,7 @@ namespace Helicopter_Game.Scripts.Controllers
             base.Start();
             _input = GetComponent<IP_Input_Controller>();
             _characteristics = GetComponent<IP_Heli_Characteristics>();
+            _weaponController = GetComponentInChildren<IP_HeliWeapon_Controller>();
         }
 
         protected override void HandlePhysics()
@@ -38,6 +41,12 @@ namespace Helicopter_Game.Scripts.Controllers
             HandleEngines();
             HandleRotors();
             HandleCharacteristics();
+            HandleWeapons();
+        }
+
+        protected virtual void HandleWeapons()
+        {
+            _weaponController.UpdateWeapons(_input);
         }
 
         protected virtual void HandleRotors()
