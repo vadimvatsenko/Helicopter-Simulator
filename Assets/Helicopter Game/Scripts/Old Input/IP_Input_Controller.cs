@@ -67,6 +67,8 @@ namespace Helicopter_Game.Scripts.Old_Input
         public float StickyCollectiveInput { get; private set; }
         public bool CameraInput { get; protected set; }
         
+        public bool FireInput { get; protected set; }
+        
         private void Start()
         {
             _keyboardInput = GetComponent<IP_KeyboardHeli_Input>();
@@ -87,6 +89,7 @@ namespace Helicopter_Game.Scripts.Old_Input
                     StickyThrottle = _keyboardInput.StickyThrottle;
                     StickyCollectiveInput = _keyboardInput.StickyCollectiveInput;
                     CameraInput = _keyboardInput.CamInput;
+                    FireInput = _keyboardInput.FireInput;
                     break;
                 case InputType.XBox:
                     ThrottleInput = _xboxInput.RawThrottleInput;
@@ -96,6 +99,7 @@ namespace Helicopter_Game.Scripts.Old_Input
                     StickyThrottle = _xboxInput.StickyThrottle;  
                     StickyCollectiveInput = _xboxInput.StickyCollectiveInput;
                     CameraInput = _xboxInput.CamInput;
+                    FireInput = _xboxInput.FireInput;
                     break;
                 case InputType.Mobile:
                     //

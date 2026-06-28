@@ -20,8 +20,12 @@ namespace Helicopter_Game.Scripts.Weapons
 
         public void UpdateWeapons(IP_Input_Controller input)
         {
-            if (allowFiring)
+            if (allowFiring && input.FireInput)
+            {
+                Debug.Log("Firing " + input.FireInput);
                 _weapons.ForEach(w => w.FireWeapon());
+            }
+            
         }
     }
 }

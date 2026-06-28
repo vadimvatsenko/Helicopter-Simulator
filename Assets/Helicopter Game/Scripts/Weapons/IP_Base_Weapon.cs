@@ -40,16 +40,16 @@ public class IP_Base_Weapon : MonoBehaviour, IP_IWeapon
     
     protected virtual void HandleProjectile()
     {
-        throw new System.NotImplementedException();
+        
     }
     
     protected virtual void HandleAudioSource()
     {
-        throw new System.NotImplementedException();
+        
     }
     
     protected virtual void HandleVFX()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

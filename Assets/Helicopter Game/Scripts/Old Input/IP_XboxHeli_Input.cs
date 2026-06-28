@@ -11,6 +11,7 @@ namespace Helicopter_Game.Scripts.Old_Input
         private const string XBOX_THROTTLE_UP = "XBoxThrottleUp";
         private const string XBOX_THROTTLE_DOWN = "XBoxThrottleDown";
         private const string XBOX_CAMERA_BUTTON = "XBoxCamBtn";
+        private const string XBOX_FIRE_BUTTON = "XBoxFireBtn";
         
         protected override void HandleThrottle()
         {
@@ -37,6 +38,11 @@ namespace Helicopter_Game.Scripts.Old_Input
         protected override void HandleCamBtn()
         {
             CamInput = Input.GetButtonDown(XBOX_CAMERA_BUTTON);
+        }
+
+        protected override void HandleFireBtn()
+        {
+            FireInput = Input.GetButtonDown(XBOX_FIRE_BUTTON);
         }
     }
 }

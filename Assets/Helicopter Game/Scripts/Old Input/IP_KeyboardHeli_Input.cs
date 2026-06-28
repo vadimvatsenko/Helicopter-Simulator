@@ -25,7 +25,10 @@ namespace Helicopter_Game.Scripts.Old_Input
 
         [Header("Camera Input Properties")] 
         [SerializeField] private KeyCode camButton = KeyCode.C;
+        [SerializeField] private KeyCode fireButton = KeyCode.Space;
+        
         public bool CamInput { get; protected set; } = false;
+        public bool FireInput { get; protected set; } = false;
 
         protected override void HandleInput()
         {
@@ -37,6 +40,7 @@ namespace Helicopter_Game.Scripts.Old_Input
             HandleCollective();
             HandleCyclic();
             HandleCamBtn();
+            HandleFireBtn();
 
             // Utils Methods
             ClampInputs();
@@ -44,6 +48,8 @@ namespace Helicopter_Game.Scripts.Old_Input
             HandleStickyCollective();
         }
 
+        protected virtual void HandleFireBtn() => FireInput = Input.GetKey(fireButton);
+        
         protected virtual void HandleThrottle() => RawThrottleInput = Input.GetAxis(THROTTLE_INPUT);
         
         protected virtual void HandlePedal() => PedalInput = Input.GetAxis(PEDAL_INPUT);
