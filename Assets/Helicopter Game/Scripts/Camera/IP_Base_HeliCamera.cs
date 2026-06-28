@@ -18,7 +18,6 @@ namespace Helicopter_Game.Scripts.Camera
         
         protected virtual void FixedUpdate()
         {
-            
             TargetFlatFwd = rb.transform.forward;
             TargetFlatFwd.y  = 0;
             TargetFlatFwd.Normalize();
