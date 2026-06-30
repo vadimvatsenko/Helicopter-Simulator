@@ -40,7 +40,7 @@ public class NVWaterShaders : MonoBehaviour
     Vector2 wVectorX, wVectorY;
     Vector3 ccLastpos;
     Renderer thisRenderer;
-    Camera currentCamera, reflectionCamera;
+    UnityEngine.Camera currentCamera, reflectionCamera;
     Hashtable reflectionCameras = new Hashtable();
     RenderTexture reflectionTexture = null;
     int oldReflectionTextureSize;
@@ -58,7 +58,7 @@ public class NVWaterShaders : MonoBehaviour
         thisRenderer = GetComponent<Renderer>();
         wVectorX = Vector2.zero;
         wVectorY = Vector2.zero;
-        //if (depthTextureModeOn) Camera.main.depthTextureMode = DepthTextureMode.Depth;
+        if (depthTextureModeOn) UnityEngine.Camera.main.depthTextureMode = DepthTextureMode.Depth;
 
         //--------------
     }
@@ -91,7 +91,7 @@ public class NVWaterShaders : MonoBehaviour
                 DestroyImmediate(reflectionTexture);
                 reflectionTexture = null;
             }
-            foreach (DictionaryEntry kvp in reflectionCameras) DestroyImmediate(((Camera)kvp.Value).gameObject);
+            foreach (DictionaryEntry kvp in reflectionCameras) DestroyImmediate(((UnityEngine.Camera)kvp.Value).gameObject);
             reflectionCameras.Clear();
         }
 
@@ -145,7 +145,7 @@ public class NVWaterShaders : MonoBehaviour
         //--------------
 
         if (!enabled || !thisRenderer.enabled || !thisRenderer || !thisRenderer.sharedMaterial) return;
-        currentCamera = Camera.current;
+        currentCamera = UnityEngine.Camera.current;
         if (!currentCamera) return;
         if (insideRendering) return;
         insideRendering = true;
@@ -184,7 +184,7 @@ public class NVWaterShaders : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    void CreateMirrorObjects(Camera currentCamera, out Camera reflectionCamera)
+    void CreateMirrorObjects(UnityEngine.Camera currentCamera, out UnityEngine.Camera reflectionCamera)
     {
         //--------------
 
@@ -197,9 +197,9 @@ public class NVWaterShaders : MonoBehaviour
             oldReflectionTextureSize = textureSize;
         }
 
-        reflectionCamera = reflectionCameras[currentCamera] as Camera;
-        GameObject go = new GameObject("Mirror Refl Camera id" + GetInstanceID() + " for " + currentCamera.GetInstanceID(), typeof(Camera), typeof(Skybox));
-        reflectionCamera = go.GetComponent<Camera>();
+        reflectionCamera = reflectionCameras[currentCamera] as UnityEngine.Camera;
+        GameObject go = new GameObject("Mirror Refl Camera id" + GetInstanceID() + " for " + currentCamera.GetInstanceID(), typeof(UnityEngine.Camera), typeof(Skybox));
+        reflectionCamera = go.GetComponent<UnityEngine.Camera>();
         reflectionCamera.enabled = false;
         reflectionCamera.transform.SetPositionAndRotation(thisTransform.position, thisTransform.rotation);
         reflectionCamera.gameObject.AddComponent<FlareLayer>();
@@ -213,7 +213,7 @@ public class NVWaterShaders : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    void UpdateCamera(Camera src, Camera dest)
+    void UpdateCamera(UnityEngine.Camera src, UnityEngine.Camera dest)
     {
         //--------------
 
@@ -256,7 +256,7 @@ public class NVWaterShaders : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
 
-    static Vector4 ClipPlane(Camera cam, Vector3 pos, Vector3 normal, float sideSign, float clipPlaneOffset)
+    static Vector4 ClipPlane(UnityEngine.Camera cam, Vector3 pos, Vector3 normal, float sideSign, float clipPlaneOffset)
     {
         //--------------
 

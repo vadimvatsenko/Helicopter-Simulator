@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: orange-grid
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Parent: {fileID: 2100000, guid: 7e0195a3a636ffa41b6cc396ddae4758, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 0.000004, y: 0.000004}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 400, y: 400}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: edccaa9b58b803b4baea935865067e1c, type: 3}
+        m_Scale: {x: 500, y: 500}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Absorption: 1.41
+    - _DepthAlphaBoost: 0.338
+    - _DepthMax: 24.2
+    - _EdgeFade: 1.77
+    - _FoamCrestIntensity: 1
+    - _FoamCrestThreshold: 0.3
+    - _FoamIntensity: 1
+    - _FoamNoiseScale: 2
+    - _FoamNoiseSpeed: 1.1
+    - _FresnelBias: 0.252
+    - _FresnelPower: 4.73
+    - _FresnelScale: 1.3
+    - _GerstnerIntensity: 1
+    - _MinAlpha: 0.376
+    - _Opacity: 0.85
+    - _RefractionStrength: 0.5
+    - _RippleScale: 0.47
+    - _RippleSpeed: 1.58
+    - _RippleStrength: 0.406
+    - _Shininess: 64
+    - _ShoreDepth: 0.9
+    m_Colors:
+    - _BaseColor: {r: 0.07999993, g: 0.5499999, b: 0.7, a: 0.45}
+    - _Color: {r: 0.0799999, g: 0.5499999, b: 0.7, a: 0.45}
+    - _DeepColor: {r: 0.02, g: 0.17999998, b: 0.27999997, a: 0.65}
+    - _GAmplitude: {r: 0.22, g: 0.18, b: 0.14, a: 0.1}
+    - _GDirectionAB: {r: 0.25, g: 0.85, b: 0.9, a: 0.2}
+    - _GDirectionCD: {r: 0.1, g: 0.95, b: 0.55, a: 0.55}
+    - _GFrequency: {r: 1.25, g: 1.65, b: 1.1, a: 0.85}
+    - _GSpeed: {r: 1.2, g: 1.45, b: 1.05, a: 0.8}
+    - _GSteepness: {r: 0.85, g: 0.75, b: 0.65, a: 0.6}
+    - _ReflectionColor: {r: 0.6, g: 0.85, b: 1, a: 0.45}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 0.35}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &2732419653234221011
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: -1
