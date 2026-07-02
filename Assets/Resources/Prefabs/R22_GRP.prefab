@@ -2579,6 +2579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffdeb9203afcecb46ac5713ce50cb1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isArcade: 0
   lRotor: {fileID: 7164221473252384976}
   rRotor: {fileID: 4993842120581327928}
   maxPitch: 35
@@ -2831,6 +2832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a308811f9ddbc5341950411bb15459fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isArcadeRotor: 0
+  maxDps: 3000
 --- !u!1 &6702126686908940208
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camButton: 99
+  fireButton: 32
 --- !u!114 &6561846038703911803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3129,6 +3133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camButton: 99
+  fireButton: 32
 --- !u!114 &7771445289853695244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3142,6 +3147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camButton: 99
+  fireButton: 32
 --- !u!114 &7462668459006034174
 MonoBehaviour:
   m_ObjectHideFlags: 0
