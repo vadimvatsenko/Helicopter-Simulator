@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 140
   maxRPM: 2700
-  powerDelay: 2
+  powerDelay: 0.05
   powerCurve:
     serializedVersion: 2
     m_Curve:
@@ -2556,8 +2556,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6411995484319477032}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.952, z: 0.328}
+  m_LocalRotation: {x: -0, y: -0.97814286, z: -0, w: 0.20793396}
+  m_LocalPosition: {x: 0, y: 0.9519999, z: 0.328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2566,7 +2566,7 @@ Transform:
   - {fileID: 7929009583540562444}
   - {fileID: 6814809893405465948}
   m_Father: {fileID: 3024723292358565009}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -155.997, z: 0}
 --- !u!114 &3527749359823397693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2612,7 +2612,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ed3134fc98a404a41aed092e53506785, type: 3}
   - {fileID: 2800000, guid: 7068257164979f64fa4e07d401476b4f, type: 3}
   - {fileID: 2800000, guid: 52c95cced04f28141b39f5ea47ad81dc, type: 3}
-  maxDps: 3000
+  maxDps: 2700
 --- !u!1 &6501417057240014473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,6 +3022,7 @@ GameObject:
   - component: {fileID: 7771445289853695244}
   - component: {fileID: 7462668459006034174}
   - component: {fileID: 715631141823228040}
+  - component: {fileID: 7770073436306386169}
   m_Layer: 0
   m_Name: R22_GRP
   m_TagString: Untagged
@@ -3039,7 +3040,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6899800130174616829}
@@ -3089,7 +3090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc6990fb7682c643b683e474c3b793d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputType: 1
+  inputType: 0
   onCameraButtonPressed:
     m_PersistentCalls:
       m_Calls:
@@ -3160,7 +3161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e8fd5ff7d3b9146bba5656a8c8e768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weightInPnd: 4000
+  weightInPnd: 880
   cog: {fileID: 6899800130174616829}
   engines:
   - {fileID: 2249961689998042872}
@@ -3182,6 +3183,21 @@ MonoBehaviour:
   cyclicForce: 2
   cyclicForceMultiplier: 1000
   autoLevelForce: 2
+--- !u!114 &7770073436306386169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540817451839241093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7193fec29faf434a8bdc05544def37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalDrag: 0.5
+  forwardDrag: 0.1
+  sideDrag: 0.4
 --- !u!1 &7767769055739475271
 GameObject:
   m_ObjectHideFlags: 0

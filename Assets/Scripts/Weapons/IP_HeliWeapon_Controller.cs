@@ -21,10 +21,8 @@ namespace Weapons
         {
             if (allowFiring && input.FireInput)
             {
-                Debug.Log("Firing " + input.FireInput);
                 _weapons.ForEach(w => w.FireWeapon());
             }
-            
         }
     }
 }

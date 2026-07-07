@@ -6,14 +6,14 @@ namespace Rotors
 {
     public class IP_Rotor_Blur : MonoBehaviour, IP_IHeliRotor
     {
-        private static readonly int MainTex = Shader.PropertyToID("_MainTex");
+        private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
 
         /// <summary>
         /// текстур всего 10, они будут изменяться в зависимости от скорости лопастей
         /// </summary>
         [Header("Rotor Blur Properties")] 
         [SerializeField] private List<GameObject> rotorsList = new List<GameObject>();
-
+        
         /// <summary>
         /// GameObject blur - это 3D обьект Quad на него натянута текстура с материалом, эта текстура будет менятся
         /// </summary>
@@ -22,7 +22,7 @@ namespace Rotors
         [Space()] 
         [SerializeField] private List<Texture2D> blurTextures = new List<Texture2D>();
         [Space()] 
-        [SerializeField] private float maxDps = 3000f;
+        [SerializeField] private float maxDps = 2700f;
         
         /// <summary>
         /// Обновляет визуальное состояние ротора вертолета в зависимости от скорости его вращения.
@@ -34,19 +34,19 @@ namespace Rotors
 
         private void OnEnable()
         {
-            blurMaterial.SetTexture(MainTex, blurTextures[0]);
+            blurMaterial.SetTexture(BaseMap, blurTextures[0]);
         }
 
         private void OnDisable()
         {
-            blurMaterial.SetTexture(MainTex, blurTextures[0]);
+            blurMaterial.SetTexture(BaseMap, blurTextures[0]);
         }
         
         public void UpdateRotors(float dps, IP_Input_Controller input)
         {
             // Шаг 1: Приводим текущую скорость к диапазону от 0.0 до 1.0
             float normalizedDps = Mathf.InverseLerp(0f, maxDps, dps);
-
+            
             // 2. Масштабирует нормализованную скорость под размер коллекции текстур и округляет её вниз 
             // с помощью Mathf.FloorToInt, чтобы получить точный целочисленный индекс. 
             // Метод Mathf.Clamp страхует от выхода за пределы диапазона [0, blurTextures.Count - 1], 
@@ -56,19 +56,24 @@ namespace Rotors
             // чтобы не выйти за диапазон текстур
             blurTextureIndex = Mathf.Clamp(blurTextureIndex, 0, blurTextures.Count - 1);
 
+            Debug.Log(blurTextureIndex);
+            
             if (blurMaterial && blurTextures.Count > 0)
             {
+                Debug.Log("Setting blur material");
                 // Шаг 3: Устанавливаем выбранную текстуру размытия в материал ротора
-                blurMaterial.SetTexture("_MainTex", blurTextures[blurTextureIndex]);
+                blurMaterial.SetTexture(BaseMap, blurTextures[blurTextureIndex]);
             }
             
             if (blurTextureIndex > 2 && blurTextures.Count > 0)
             {
+                
                 //blurMaterial.SetColor("_MainTex", new Color(255f, 255f, 255f, 255f));
                 HandleVisibleBlades(false);
             }
             else
             {
+                //blurPrefab.gameObject.SetActive(false);
                 HandleVisibleBlades(true);
             }
         }
@@ -79,6 +84,8 @@ namespace Rotors
             {
                 blade.SetActive(visible);
             }
+            
+            blur.gameObject.SetActive(!visible);
         }
     }
 }

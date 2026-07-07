@@ -4,7 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: ae2d8d79839a00543b855dcca96041d7
+  - enabled: 1
+    path: Assets/Scenes/R22Simulator.unity
+    guid: 4caba7208f8a93c4385a46aee99aaad2
+  - enabled: 1
+    path: Assets/Scenes/R22VRSimulator 1.unity
+    guid: 60f0d6f2cd96ff24e8a1ebbaaa899f32
+  - enabled: 1
+    path: Assets/Scenes/HeaveHeliArcade.unity
+    guid: ebb588765a475a84c95c1dacf4c1c70f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   m_UseUCBPForAssetBundles: 0

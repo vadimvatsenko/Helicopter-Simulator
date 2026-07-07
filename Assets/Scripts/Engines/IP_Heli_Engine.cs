@@ -18,7 +18,7 @@ namespace Engines
         /// </summary>
         [SerializeField] private AnimationCurve powerCurve 
             = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
-
+        
         /// <summary>
         /// текущая лошадиная сила
         /// </summary>
@@ -35,8 +35,8 @@ namespace Engines
             float wantedHP = powerCurve.Evaluate(throttleInput) * maxHP;
             CurrentHP = Mathf.Lerp(CurrentHP, wantedHP, Time.fixedDeltaTime * powerDelay);
             
+            float wantedRPM = powerCurve.Evaluate(throttleInput) * maxRPM;
             // Расчет Оборотов в минуту
-            float wantedRPM = powerCurve.Evaluate(throttleInput)  * maxRPM;
             CurrentRPM = Mathf.Lerp(CurrentRPM, wantedRPM, Time.fixedDeltaTime * powerDelay);
         }
     }

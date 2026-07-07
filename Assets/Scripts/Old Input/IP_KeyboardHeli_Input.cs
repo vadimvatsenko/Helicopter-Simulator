@@ -26,6 +26,7 @@ namespace Old_Input
         [Header("Camera Input Properties")] 
         [SerializeField] private KeyCode camButton = KeyCode.C;
         [SerializeField] private KeyCode fireButton = KeyCode.Space;
+        [SerializeField] private KeyCode menuBtn = KeyCode.Escape;
         
         public bool CamInput { get; protected set; } = false;
         public bool FireInput { get; protected set; } = false;
