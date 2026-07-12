@@ -21,12 +21,8 @@ A component-based flight simulation framework for Unity, featuring a physically 
 ## 🕹️ Flight Demo
 
 <p align="center">
-  <img src="IMG/Heavy.gif" alt="Heavy Transport Demo" width="49%" />
-  <img src="IMG/Heli22.gif" alt="Heli Physics Demo" width="49%" />
-</p>
-
-<p align="center">
-  <em>Демонстрация симуляции: реальное поведение физики, компенсация крутящего момента и переключение состояний камер.</em>
+  <img src="IMG/Heavy.gif" alt="Heavy Transport Demo" width="100%" />
+  <img src="IMG/Heli22.gif" alt="Heli Physics Demo" width="100%" />
 </p>
 
 ---
