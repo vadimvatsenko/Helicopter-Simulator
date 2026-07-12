@@ -33,15 +33,15 @@ The core architecture is strictly decoupled into modular subsystems:
 Scripts/
 ├── Camera/           # Core camera logic (Base, Cockpit, Advanced) and Custom Inspectors
 ├── Characteristics/  # Heli aerodynamics, performance indices, and physical profiles
-├── Controllers/      # Main flight controllers, system supervisors, and rotor managers[cite: 1]
-├── Engines/          # Powerplants, engine mechanics, and RPM/throttle systems[cite: 1]
-├── Old Input/        # Legacy input mapping (Keyboard, Xbox controller, and Mobile schemes)[cite: 1]
-├── Rigidbodies/      # Custom Rigidbody abstractions and physics body controllers[cite: 1]
-├── Rotors/           # Rotor interfaces and dynamic motion-blur visual effects[cite: 1]
-└── Testing/          # Isolated sandbox components for calculating Forces, Hover, Weight, and Torque[cite: 1]
+├── Controllers/      # Main flight controllers, system supervisors, and rotor managers
+├── Engines/          # Powerplants, engine mechanics, and RPM/throttle systems
+├── Old Input/        # Legacy input mapping (Keyboard, Xbox controller, and Mobile schemes)
+├── Rigidbodies/      # Custom Rigidbody abstractions and physics body controllers
+├── Rotors/           # Rotor interfaces and dynamic motion-blur visual effects
+└── Testing/          # Isolated sandbox components for calculating Forces, Hover, Weight, and Torque
 
 📝 Roadmap
-[x] Implement robust Hover, Weight, and Torque physical tests[cite: 1].
-[x] Build custom inspector layout for advanced camera tracking setup[cite: 1].
-[ ] Migrate the legacy input pipeline (Old Input[cite: 1]) to the new Unity Input System package.
+[x] Implement robust Hover, Weight, and Torque physical tests.
+[x] Build custom inspector layout for advanced camera tracking setup.
+[ ] Migrate the legacy input pipeline (Old Input) to the new Unity Input System package.
 [ ] Implement fully integrated VR interactions (XR Interaction Toolkit) for physical cockpit controls.
