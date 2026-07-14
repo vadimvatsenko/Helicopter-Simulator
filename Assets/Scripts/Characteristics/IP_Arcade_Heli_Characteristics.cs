@@ -21,7 +21,6 @@ namespace Characteristics
             Vector3 liftForce = Vector3.up * (Physics.gravity.magnitude * rb.mass);
             rb.AddForce(liftForce, ForceMode.Force);
             //
-            
             rb.AddForce(Vector3.up * (input.ThrottleInput * maxLiftForce), ForceMode.Acceleration);
         }
         
