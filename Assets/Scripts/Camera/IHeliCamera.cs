@@ -1,6 +1,6 @@
 namespace Camera
 {
-    public interface IP_IHeliCamera
+    public interface IHeliCamera
     {
         void UpdateCamera();
     }

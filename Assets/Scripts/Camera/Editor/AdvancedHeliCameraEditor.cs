@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace Camera.Editor
 {
-    [CustomEditor(typeof(IP_Advanced_HeliCamera))]
-    public class IP_AdvancedHeliCamera_Editor : UnityEditor.Editor
+    [CustomEditor(typeof(AdvancedHeliCamera))]
+    public class AdvancedHeliCameraEditor : UnityEditor.Editor
     {
-        private IP_Advanced_HeliCamera _targetCamera;
+        private AdvancedHeliCamera _targetCamera;
         private void OnEnable()
         {
-            _targetCamera = (IP_Advanced_HeliCamera)target;
+            _targetCamera = (AdvancedHeliCamera)target;
         }
 
         private void OnSceneGUI()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Characteristics
 {
-    public class IP_Arcade_Heli_Characteristics : IP_Heli_Characteristics
+    public class ArcadeHeliCharacteristics : HeliCharacteristics
     {
         [Header("Arcade Properties")]
         [SerializeField] private float blankAngle = 35f;
@@ -15,7 +15,7 @@ namespace Characteristics
 
         private Quaternion _finalRot = Quaternion.identity;
         
-        protected override void HandleLift(Rigidbody rb, IP_Input_Controller input)
+        protected override void HandleLift(Rigidbody rb, InputController input)
         {
             // зависаю в воздухе
             Vector3 liftForce = Vector3.up * (Physics.gravity.magnitude * rb.mass);
@@ -24,7 +24,7 @@ namespace Characteristics
             rb.AddForce(Vector3.up * (input.ThrottleInput * maxLiftForce), ForceMode.Acceleration);
         }
         
-        protected override void HandleCyclic(Rigidbody rb, IP_Input_Controller input)
+        protected override void HandleCyclic(Rigidbody rb, InputController input)
         {
             Vector3 fwdDir = input.CyclicInput.y * FlatFwd;
             Vector3 rightDir = input.CyclicInput.x * FlatRight;
@@ -36,7 +36,7 @@ namespace Characteristics
             _zRot = -input.CyclicInput.x * blankAngle;
         }
 
-        protected override void HandlePedals(Rigidbody rb, IP_Input_Controller input)
+        protected override void HandlePedals(Rigidbody rb, InputController input)
         {
             _yRot += input.PedalInput * tailForce;
         }

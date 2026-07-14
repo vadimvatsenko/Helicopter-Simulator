@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Rotors
 {
-    public class IP_HeliTail_Rotor : MonoBehaviour, IP_IHeliRotor
+    public class HeliTailRotor : MonoBehaviour, IHeliRotor
     {
         [SerializeField] private float rotationSpeedModifer = 1.5f;
         [SerializeField] private Transform lRotor;
@@ -12,7 +12,7 @@ namespace Rotors
         [SerializeField] private float maxPitch = 45f;
     
     
-        public void UpdateRotors(float dps,  IP_Input_Controller input)
+        public void UpdateRotors(float dps,  InputController input)
         {
             transform.Rotate(Vector3.right, dps * rotationSpeedModifer);
 

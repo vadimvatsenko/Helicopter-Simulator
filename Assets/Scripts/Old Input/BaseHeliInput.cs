@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Old_Input
 {
-    public class IP_BaseHeli_Input : MonoBehaviour
+    public class BaseHeliInput : MonoBehaviour
     {
         [Header("Base Input Properties")]
         protected float VerticalInput = 0f;

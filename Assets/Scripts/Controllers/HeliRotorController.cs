@@ -6,18 +6,18 @@ using UnityEngine;
 
 namespace Controllers
 {
-    public class IP_HeliRotor_Controller : MonoBehaviour
+    public class HeliRotorController : MonoBehaviour
     {
         [SerializeField] private bool isArcadeRotor = false;
         [SerializeField] private float maxDps = 3000f;
-        private List<IP_IHeliRotor> _heliRotors;
+        private List<IHeliRotor> _heliRotors;
 
         private void Start()
         {
-            _heliRotors = GetComponentsInChildren<IP_IHeliRotor>().ToList();
+            _heliRotors = GetComponentsInChildren<IHeliRotor>().ToList();
         }
         
-        public void UpdateRotors(IP_Input_Controller input, float currentRPM)
+        public void UpdateRotors(InputController input, float currentRPM)
         {
             float dps = ((currentRPM * 360f) / 60f);
             dps = Mathf.Clamp(dps, 0f, maxDps);

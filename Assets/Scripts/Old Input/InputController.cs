@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 namespace Old_Input
 {
-    [RequireComponent(typeof(IP_KeyboardHeli_Input), typeof(IP_XboxHeli_Input), typeof(IP_MobileHeli_Input))]
-    public class IP_Input_Controller : MonoBehaviour
+    [RequireComponent(typeof(KeyboardHeliInput), typeof(XboxHeliInput), typeof(MobileHeliInput))]
+    public class InputController : MonoBehaviour
     {
         [Header("Input Components")]
         [SerializeField] private InputType inputType = InputType.KeyBoard;
@@ -12,9 +12,9 @@ namespace Old_Input
         [Header("Input Events")]
         [SerializeField] private UnityEvent onCameraButtonPressed = new UnityEvent();
         
-        private IP_KeyboardHeli_Input _keyboardInput;
-        private IP_XboxHeli_Input _xboxInput;
-        private IP_MobileHeli_Input _mobileInput;
+        private KeyboardHeliInput _keyboardInput;
+        private XboxHeliInput _xboxInput;
+        private MobileHeliInput _mobileInput;
         
         /// <summary>
         /// 1. public float ThrottleInput { get; private set; }
@@ -70,9 +70,9 @@ namespace Old_Input
         
         private void Start()
         {
-            _keyboardInput = GetComponent<IP_KeyboardHeli_Input>();
-            _xboxInput = GetComponent<IP_XboxHeli_Input>();
-            _mobileInput = GetComponent<IP_MobileHeli_Input>();
+            _keyboardInput = GetComponent<KeyboardHeliInput>();
+            _xboxInput = GetComponent<XboxHeliInput>();
+            _mobileInput = GetComponent<MobileHeliInput>();
             SetInputType(inputType);
         }
 

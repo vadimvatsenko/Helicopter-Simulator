@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Testing
 {
-    public class Drag : IP_Base_RBController
+    public class Drag : BaseRbController
     {
         [Header("Drag Properties")]
         [SerializeField] private float dragFactor = 0.05f;

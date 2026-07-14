@@ -1,6 +1,6 @@
 namespace Weapons
 {
-    public interface IP_IWeapon
+    public interface IWeapon
     {
         void FireWeapon();
         void Reload();

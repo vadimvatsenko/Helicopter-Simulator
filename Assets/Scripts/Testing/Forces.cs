@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Testing
 {
-    public class Forces : IP_Base_RBController
+    public class Forces : BaseRbController
     {
         [SerializeField] private float maxSpeed;
         [SerializeField] private Vector3 movementDirection = Vector3.right;

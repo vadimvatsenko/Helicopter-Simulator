@@ -5,19 +5,19 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class IP_HeliWeapon_Controller : MonoBehaviour
+    public class HeliWeaponController : MonoBehaviour
     {
         [Header("Weapon Conteroller Propperties")]
         [SerializeField] public bool allowFiring = true;
         
-        private List<IP_IWeapon> _weapons = new List<IP_IWeapon>();
+        private List<IWeapon> _weapons = new List<IWeapon>();
 
         private void Start()
         {
-            _weapons = GetComponentsInChildren<IP_IWeapon>().ToList();
+            _weapons = GetComponentsInChildren<IWeapon>().ToList();
         }
 
-        public void UpdateWeapons(IP_Input_Controller input)
+        public void UpdateWeapons(InputController input)
         {
             if (allowFiring && input.FireInput)
             {

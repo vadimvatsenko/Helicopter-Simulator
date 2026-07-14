@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Rigidbodies
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class IP_Base_RBController : MonoBehaviour
+    public class BaseRbController : MonoBehaviour
     {
         private const float PND_TO_KG = 0.454f;
         private const float KG_TO_PND = 2.20462f;

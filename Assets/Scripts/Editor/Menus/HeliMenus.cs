@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Editor.Menus
 {
-    public class IP_Heli_Menus : UnityEditor.Editor
+    public class HeliMenus : UnityEditor.Editor
     {
         // создаст в шапке меню
         [MenuItem("Helicopter Game/Vehicles/Setup New Helicopter")]
@@ -14,14 +14,14 @@ namespace Editor.Menus
         {
             // cоздаст объект Helicopter в нём компонент  IP_Heli_Controller в котором есть RequireComponent
             // который в свою очередь добавит скрипты
-            GameObject helicopter = new GameObject("Helicopter", typeof(IP_Heli_Controller));
+            GameObject helicopter = new GameObject("Helicopter", typeof(HeliController));
             
             // объект центра тяжести
             GameObject curCOG = new GameObject("COG");
             curCOG.transform.SetParent(helicopter.transform);
             
             // сразу будет активен объект, то есть выбран
-            IP_Heli_Controller controller = helicopter.GetComponent<IP_Heli_Controller>();
+            HeliController controller = helicopter.GetComponent<HeliController>();
             controller.Cog = curCOG.transform;
             
             GameObject audioGRP = new GameObject("Audio_GRP");
@@ -30,8 +30,8 @@ namespace Editor.Menus
             GameObject engineGPR = new GameObject("Engine_GPR");
             GameObject rotorGPR = new GameObject("Rotor_GPR");
             
-            SetupRotorGRP(rotorGPR, controller);
-            SetupEngineGRP(engineGPR, controller);
+            SetupRotorGrp(rotorGPR, controller);
+            SetupEngineGrp(engineGPR, controller);
             
             audioGRP.transform.SetParent(helicopter.transform);
             graphicsGRP.transform.SetParent(helicopter.transform);
@@ -42,28 +42,28 @@ namespace Editor.Menus
             Selection.activeGameObject = helicopter;
         }
 
-        public static void SetupRotorGRP(GameObject rotorGo, IP_Heli_Controller controller)
+        public static void SetupRotorGrp(GameObject rotorGo, HeliController controller)
         {
-            IP_HeliRotor_Controller heliRotorController = rotorGo.AddComponent<IP_HeliRotor_Controller>();
+            HeliRotorController heliRotorController = rotorGo.AddComponent<HeliRotorController>();
             controller.RotorController = heliRotorController;
             
-            GameObject mainGPR = new GameObject("Main_Rotor");
-            GameObject tailGPR = new GameObject("Tail_Rotor");
+            GameObject mainGpr = new GameObject("Main_Rotor");
+            GameObject tailGpr = new GameObject("Tail_Rotor");
             
-            IP_HeliMain_Rotor mainRotor = mainGPR.AddComponent<IP_HeliMain_Rotor>();
-            IP_HeliTail_Rotor tailRotor = tailGPR.AddComponent<IP_HeliTail_Rotor>();
+            HeliMainRotor mainRotor = mainGpr.AddComponent<HeliMainRotor>();
+            HeliTailRotor tailRotor = tailGpr.AddComponent<HeliTailRotor>();
             
-            mainGPR.transform.SetParent(rotorGo.transform);
-            tailGPR.transform.SetParent(rotorGo.transform);
+            mainGpr.transform.SetParent(rotorGo.transform);
+            tailGpr.transform.SetParent(rotorGo.transform);
         }
 
-        public static void SetupEngineGRP(GameObject engineGo, IP_Heli_Controller controller)
+        public static void SetupEngineGrp(GameObject engineGo, HeliController controller)
         {
-            GameObject engineGRP = new GameObject("Main_Engine");
-            IP_Heli_Engine engine = engineGRP.AddComponent<IP_Heli_Engine>();
+            GameObject engineGrp = new GameObject("Main_Engine");
+            HeliEngine engine = engineGrp.AddComponent<HeliEngine>();
             controller.AddEngine(engine);
             
-            engineGRP.transform.SetParent(engineGo.transform);
+            engineGrp.transform.SetParent(engineGo.transform);
         }
     }
 }

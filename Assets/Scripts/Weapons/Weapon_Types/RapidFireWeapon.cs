@@ -2,7 +2,7 @@
 
 namespace Weapons.Weapon_Types
 {
-    public class IP_RapidFire_Weapon : IP_Base_Weapon
+    public class RapidFireWeapon : BaseWeapon
     {
         [Header("Rapid Fire Properties")] 
         [SerializeField] private float fireRate = 0.15f;

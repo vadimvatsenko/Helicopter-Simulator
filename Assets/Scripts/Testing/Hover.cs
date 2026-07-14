@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Testing
 {
-    public class Hover : IP_Base_RBController
+    public class Hover : BaseRbController
     {
         [Header("Hover Properties")] 
         [SerializeField] private float hoverHight = 3f;

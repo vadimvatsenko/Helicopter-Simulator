@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Characteristics
 {
-    public class IP_Heli_Characteristics : MonoBehaviour
+    public class HeliCharacteristics : MonoBehaviour
     {
         [Header("Lift Properties")] 
         [SerializeField] protected float maxLiftForce = 100f;
@@ -19,8 +19,8 @@ namespace Characteristics
         [Header("Auto Level Properties")]
         [SerializeField] float autoLevelForce = 2f;
         
-        private IP_HeliMain_Rotor _mainRotor;
-        private IP_HeliTail_Rotor _tailRotor;
+        private HeliMainRotor _mainRotor;
+        private HeliTailRotor _tailRotor;
 
         protected Vector3 FlatFwd;
         protected float ForwardDot;
@@ -29,11 +29,11 @@ namespace Characteristics
 
         private void Start()
         {
-            _mainRotor = GetComponentInChildren<IP_HeliMain_Rotor>();
-            _tailRotor = GetComponentInChildren<IP_HeliTail_Rotor>();
+            _mainRotor = GetComponentInChildren<HeliMainRotor>();
+            _tailRotor = GetComponentInChildren<HeliTailRotor>();
         }
         
-        public void UpdateCharacteristics(Rigidbody rb, IP_Input_Controller input)
+        public void UpdateCharacteristics(Rigidbody rb, InputController input)
         {
             HandleLift(rb, input);
             HandleCyclic(rb, input);
@@ -44,7 +44,7 @@ namespace Characteristics
         }
         
         // поднятие вверх
-        protected virtual void HandleLift(Rigidbody rb, IP_Input_Controller input)
+        protected virtual void HandleLift(Rigidbody rb, InputController input)
         {
             Vector3 liftForce = transform.up * ((Physics.gravity.magnitude + maxLiftForce) * rb.mass);
             // почему 450, потому что CurrentRPMs 2700
@@ -55,7 +55,7 @@ namespace Characteristics
             Vector3 liftForce = transform.up * Physics.gravity.magnitude * rb.mass;
             rb.AddForce(liftForce, ForceMode.Force);*/
         }
-        protected virtual void HandleCyclic(Rigidbody rb, IP_Input_Controller input)
+        protected virtual void HandleCyclic(Rigidbody rb, InputController input)
         {
             float cyclicZForce = input.CyclicInput.x  * cyclicForce;
             rb.AddRelativeTorque(Vector3.forward * cyclicZForce, ForceMode.Acceleration);
@@ -71,7 +71,7 @@ namespace Characteristics
             rb.AddForce(finalCyclicDir, ForceMode.Force);
         }
 
-        protected virtual void HandlePedals(Rigidbody rb, IP_Input_Controller input)
+        protected virtual void HandlePedals(Rigidbody rb, InputController input)
         {
             rb.AddTorque(Vector3.up * (input.PedalInput * tailForce), ForceMode.Acceleration);
         }

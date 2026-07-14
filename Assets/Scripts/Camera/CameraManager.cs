@@ -4,29 +4,29 @@ using UnityEngine;
 
 namespace Camera
 {
-    public class IP_Camera_Manager : MonoBehaviour
+    public class CameraManager : MonoBehaviour
     {
         [Header("Manager Properties")] 
         [SerializeField] private int startIndexCamera = 0;
-        private List<IP_Base_HeliCamera> cameras;
-        private int camIndex = 0;
+        private List<BaseHeliCamera> _cameras;
+        private int _camIndex = 0;
 
         private void Start()
         {
-            cameras = GetComponentsInChildren<IP_Base_HeliCamera>().ToList();
+            _cameras = GetComponentsInChildren<BaseHeliCamera>().ToList();
             
             HandleSwitchCamera(startIndexCamera);
         }
 
         public void SwitchCamera()
         {
-            camIndex = (camIndex + 1) % cameras.Count;
-            HandleSwitchCamera(camIndex);
+            _camIndex = (_camIndex + 1) % _cameras.Count;
+            HandleSwitchCamera(_camIndex);
         }
 
         private void HandleSwitchCamera(int index)
         {
-            for (int i = 0; i < cameras.Count; i++)
+            for (int i = 0; i < _cameras.Count; i++)
             {
                 if (i == index)
                 {
@@ -41,7 +41,7 @@ namespace Camera
         
         private void SwitchCameraComponent(int index, bool active)
         {
-            cameras[index].GetComponent<UnityEngine.Camera>().enabled = active;
+            _cameras[index].GetComponent<UnityEngine.Camera>().enabled = active;
         }
     }
 }

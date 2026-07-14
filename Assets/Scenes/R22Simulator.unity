@@ -282,9 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb72ce97e1dded941a775df8efd1b83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 954241453}
-  lookAtTarget: {fileID: 1094725949}
-  cockpitPosition: {fileID: 357241587}
+  rb: {fileID: 1828752607}
+  lookAtTarget: {fileID: 279082570}
+  cockpitPosition: {fileID: 1666562520}
   offset: {x: 0, y: 0, z: 0}
 --- !u!20 &279082573
 Camera:
@@ -487,9 +487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d9e970a1ef08e49b5eeb7e6633b92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 954241453}
-  lookAtTarget: {fileID: 954241460}
-  height: 10
+  rb: {fileID: 1828752607}
+  lookAtTarget: {fileID: 1828752608}
+  height: 5
   distance: 5
   smoothSpeed: 0.35
 --- !u!114 &356488463
@@ -536,11 +536,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!4 &357241587 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4352903054829623426, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
-  m_PrefabInstance: {fileID: 6915721643842151639}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &566954303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,16 +1016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &954241453 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: -5421381415970513684, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
-  m_PrefabInstance: {fileID: 6915721643842151639}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &954241460 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
-  m_PrefabInstance: {fileID: 6915721643842151639}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1008089489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1181,11 +1166,6 @@ Transform:
   - {fileID: 1260092046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1094725949 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6069738888476369008, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
-  m_PrefabInstance: {fileID: 6915721643842151639}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175643208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,14 +1212,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d36c26d743dcf45adc686e9773605c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 954241453}
-  lookAtTarget: {fileID: 954241460}
-  height: 20
-  minGroundHeight: 10
-  minDistance: 4.642511
-  maxDistance: 8.28259
+  rb: {fileID: 1828752607}
+  lookAtTarget: {fileID: 1828752608}
+  height: 5
+  minGroundHeight: 4
+  minDistance: 4
+  maxDistance: 8
   catchUpModifirier: 5
-  rotationSpeed: 20
+  rotationSpeed: 5
   minVelocityForOrient: 5
   unUseHeliSelfRotate: 1
 --- !u!20 &1175643213
@@ -1355,7 +1335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1260092046
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,6 +1480,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1666562520 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2536231489555632819, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
+  m_PrefabInstance: {fileID: 6915721643842151639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1828752607 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: -5421381415970513684, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
+  m_PrefabInstance: {fileID: 6915721643842151639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1828752608 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8014965010676508314, guid: b28ac92e4d6f7ab49904a54df01b2e04, type: 3}
+  m_PrefabInstance: {fileID: 6915721643842151639}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1916096383
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,21 +8,21 @@ using Weapons;
 
 namespace Controllers
 {
-    [RequireComponent(typeof(Rigidbody), typeof(IP_Input_Controller))]
+    [RequireComponent(typeof(Rigidbody), typeof(InputController))]
     
-    public class IP_Heli_Controller : IP_Base_RBController
+    public class HeliController : BaseRbController
     {
         [Header("Helicopter Properties")]
         // List Engines // список двигателей
-        [SerializeField] private List<IP_Heli_Engine> engines = new List<IP_Heli_Engine>();
+        [SerializeField] private List<HeliEngine> engines = new List<HeliEngine>();
         [Header("Helicopter Rotors")]
-        [SerializeField] private IP_HeliRotor_Controller rotorController;
+        [SerializeField] private HeliRotorController rotorController;
         
-        private IP_Heli_Characteristics _characteristics;
-        private IP_Input_Controller _input;
-        private IP_HeliWeapon_Controller _weaponController;
+        private HeliCharacteristics _characteristics;
+        private InputController _input;
+        private HeliWeaponController _weaponController;
 
-        public IP_HeliRotor_Controller RotorController
+        public HeliRotorController RotorController
         {
             get => rotorController;
             set => rotorController = value;
@@ -31,9 +31,9 @@ namespace Controllers
         protected override void Start()
         {
             base.Start();
-            _input = GetComponent<IP_Input_Controller>();
-            _characteristics = GetComponent<IP_Heli_Characteristics>();
-            _weaponController = GetComponentInChildren<IP_HeliWeapon_Controller>();
+            _input = GetComponent<InputController>();
+            _characteristics = GetComponent<HeliCharacteristics>();
+            _weaponController = GetComponentInChildren<HeliWeaponController>();
         }
 
         protected override void HandlePhysics()
@@ -56,7 +56,7 @@ namespace Controllers
         {
             if (engines.Count > 0)
             {
-                rotorController.UpdateRotors(_input, engines[0].CurrentRPM);
+                rotorController.UpdateRotors(_input, engines[0].CurrentRpm);
             }
         }
 
@@ -70,11 +70,11 @@ namespace Controllers
             for (int i = 0; i < engines.Count; i++)
             {
                 engines[i].UpdateEngine(_input.StickyThrottle);
-                float finalPower = engines[i].CurrentHP;
+                float finalPower = engines[i].CurrentHp;
                 //Debug.Log(finalPower);
             }
         }
 
-        public void AddEngine(IP_Heli_Engine engine) => engines.Add(engine);
+        public void AddEngine(HeliEngine engine) => engines.Add(engine);
     }
 }

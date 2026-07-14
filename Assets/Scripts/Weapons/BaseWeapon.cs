@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Weapons
 {
     [RequireComponent(typeof(AudioSource))]
-    public class IP_Base_Weapon : MonoBehaviour, IP_IWeapon
+    public class BaseWeapon : MonoBehaviour, IWeapon
     {
         [Header("Base Weapon Property")] 
         [SerializeField] private bool allowFiring = true;

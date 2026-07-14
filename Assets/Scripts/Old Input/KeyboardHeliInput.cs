@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Old_Input
 {
-    public class IP_KeyboardHeli_Input : IP_BaseHeli_Input
+    public class KeyboardHeliInput : BaseHeliInput
     {
         private const string PEDAL_INPUT = "Pedal";
         private const string COLLECTIVE_INPUT = "Collective";

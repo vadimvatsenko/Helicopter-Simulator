@@ -2,14 +2,14 @@ using UnityEditor;
 
 namespace Old_Input.Editor
 {
-    [CustomEditor(typeof(IP_XboxHeli_Input))]
-    public class IP_XboxHeli_InputEditor : UnityEditor.Editor
+    [CustomEditor(typeof(KeyboardHeliInput))]
+    public class KeyboardHeliInputEditor : UnityEditor.Editor
     {
-        private IP_XboxHeli_Input targetInput;
+        private KeyboardHeliInput targetInput;
 
         private void OnEnable()
         {
-            targetInput = (IP_XboxHeli_Input)target;
+            targetInput = (KeyboardHeliInput)target;
         }
 
         public override void OnInspectorGUI()

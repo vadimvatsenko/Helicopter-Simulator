@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Rotors
 {
-    public class IP_Rotor_Blur : MonoBehaviour, IP_IHeliRotor
+    public class RotorBlur : MonoBehaviour, IHeliRotor
     {
         private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
 
@@ -42,7 +42,7 @@ namespace Rotors
             blurMaterial.SetTexture(BaseMap, blurTextures[0]);
         }
         
-        public void UpdateRotors(float dps, IP_Input_Controller input)
+        public void UpdateRotors(float dps, InputController input)
         {
             // Шаг 1: Приводим текущую скорость к диапазону от 0.0 до 1.0
             float normalizedDps = Mathf.InverseLerp(0f, maxDps, dps);

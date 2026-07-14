@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Rotors
 {
-    public class IP_HeliMain_Rotor : MonoBehaviour, IP_IHeliRotor
+    public class HeliMainRotor : MonoBehaviour, IHeliRotor
     {
         [Header("Main Rotor Properties")] 
         [SerializeField] private bool isArcade = false;
@@ -18,7 +18,7 @@ namespace Rotors
         
         public float CurrentRPMs {get; private set;}
         
-        public void UpdateRotors(float dps, IP_Input_Controller input)
+        public void UpdateRotors(float dps, InputController input)
         {
             // Здесь угловая скорость из градусов в секунду переводится в привычные пилотам обороты в минуту:
             // dps / 360 — делим градусы на 360 (градусов в одном полном обороте), чтобы узнать, сколько оборотов делает винт за одну секунду.

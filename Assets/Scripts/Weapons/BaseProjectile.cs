@@ -3,7 +3,7 @@
 namespace Weapons
 {
     [RequireComponent(typeof(Rigidbody), typeof(SphereCollider))]
-    public class IP_Base_Projectile : MonoBehaviour
+    public class BaseProjectile : MonoBehaviour
     {
         [Header("Base Projectile Properties")]
         [SerializeField] private float projectileSpeed = 200f;
@@ -11,14 +11,14 @@ namespace Weapons
         [SerializeField] private float lifetime = 5f;
         
         protected Rigidbody Rb;
-        protected SphereCollider col;
+        protected SphereCollider Col;
 
         private void Start()
         {
             Rb = GetComponent<Rigidbody>();
-            col = GetComponent<SphereCollider>();
+            Col = GetComponent<SphereCollider>();
             
-            col.isTrigger = true;
+            Col.isTrigger = true;
 
             FireProjectile();
         }

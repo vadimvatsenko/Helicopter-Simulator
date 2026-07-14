@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Camera
 {
-    public class IP_Advanced_HeliCamera : IP_Base_HeliCamera
+    public class AdvancedHeliCamera : BaseHeliCamera
     {
         [Header("Advanced Camera Properties")] 
         [SerializeField] private float height = 5;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Camera
 {
-    public class IP_Base_HeliCamera : MonoBehaviour
+    public class BaseHeliCamera : MonoBehaviour
     {
         [Header("Base Camera Properties")]
         [SerializeField] protected Rigidbody rb;
@@ -18,7 +18,9 @@ namespace Camera
         
         protected virtual void FixedUpdate()
         {
-            TargetFlatFwd = rb.transform.forward;
+            if (Rb != null)
+                TargetFlatFwd = rb.transform.forward;
+            
             TargetFlatFwd.y  = 0;
             TargetFlatFwd.Normalize();
             

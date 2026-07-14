@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Camera
 {
-    public class IP_CockPit_HeliCamera : IP_Base_HeliCamera, IP_IHeliCamera
+    public class CockPitHeliCamera : BaseHeliCamera, IHeliCamera
     {
         [Header("Cockpit Camera Properties")]
         [SerializeField] Transform cockpitPosition;

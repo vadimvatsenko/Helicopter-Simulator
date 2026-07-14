@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Old_Input
 {
-    public class IP_XboxHeli_Input : IP_KeyboardHeli_Input
+    public class XboxHeliInput : KeyboardHeliInput
     {
         private const string XBOX_CYCLIC_HORIZONTAL = "XBoxCyclicHorizontal";
         private const string XBOX_CYCLIC_VERTICAL = "XBoxCyclicVertical";
